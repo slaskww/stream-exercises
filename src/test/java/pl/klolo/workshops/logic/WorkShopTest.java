@@ -1,432 +1,432 @@
 package pl.klolo.workshops.logic;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
 import pl.klolo.workshops.domain.Account;
 import pl.klolo.workshops.domain.AccountType;
 import pl.klolo.workshops.domain.Currency;
 import pl.klolo.workshops.domain.User;
 
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.function.Function;
-
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-
+@RunWith(BlockJUnit4ClassRunner.class)
 public class WorkShopTest {
 
-    private WorkShop workShop;
+  private WorkShop workShop;
 
-    @Before
-    public void setUp() {
-        workShop = new WorkShop();
-    }
+  @Before
+  public void setUp() {
+    workShop = new WorkShop();
+  }
 
-    /**
-     * 1.
-     */
-    @Test
-    public void shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany() {
-        final long amountOfCompanies = workShop.getHoldingsWhereAreCompanies();
-        assertEquals(3, amountOfCompanies);
-    }
+  /**
+   * 1.
+   */
+  @Test
+  public void shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany() {
+    final long amountOfCompanies = workShop.getHoldingsWhereAreCompanies();
+    assertEquals(3, amountOfCompanies);
+  }
 
-    /**
-     * 2.
-     */
-    @Test
-    public void shouldReturnLowerCaseNameOfAllHoldings() {
-        final List<String> holdingNames = workShop.getHoldingNames();
-        assertEquals("[nestle, coca-cola, pepsico]", holdingNames.toString());
-    }
+  /**
+   * 2.
+   */
+  @Test
+  public void shouldReturnLowerCaseNameOfAllHoldings() {
+    final List<String> holdingNames = workShop.getHoldingNames();
+    assertEquals("[nestle, coca-cola, pepsico]", holdingNames.toString());
+  }
 
-    /**
-     * 3.
-     */
-    @Test
-    public void shouldReturnNamesOfAllHoldingInString() {
-        final String holdingNames = workShop.getHoldingNamesAsString();
-        assertEquals("(Coca-Cola, Nestle, Pepsico)", holdingNames);
-    }
+  /**
+   * 3.
+   */
+  @Test
+  public void shouldReturnNamesOfAllHoldingInString() {
+    final String holdingNames = workShop.getHoldingNamesAsString();
+    assertEquals("(Coca-Cola, Nestle, Pepsico)", holdingNames);
+  }
 
-    /**
-     * 4.
-     */
-    @Test
-    public void shouldCountCompaniesInHoldings() {
-        final long companiesAmount = workShop.getCompaniesAmount();
-        assertEquals(8, companiesAmount);
-    }
+  /**
+   * 4.
+   */
+  @Test
+  public void shouldCountCompaniesInHoldings() {
+    final long companiesAmount = workShop.getCompaniesAmount();
+    assertEquals(8, companiesAmount);
+  }
 
-    /**
-     * 5.
-     */
-    @Test
-    public void shouldCountAllUsersInAllCompanies() {
-        final long userAmount = workShop.getAllUserAmount();
-        assertEquals(20, userAmount);
-    }
+  /**
+   * 5.
+   */
+  @Test
+  public void shouldCountAllUsersInAllCompanies() {
+    final long userAmount = workShop.getAllUserAmount();
+    assertEquals(20, userAmount);
+  }
 
-    /**
-     * 6.
-     */
-    @Test
-    public void shouldReturnAllCompaniesName() {
-        final List<String> allCompaniesName = workShop.getAllCompaniesNames();
-        assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
-    }
+  /**
+   * 6.
+   */
+  @Test
+  public void shouldReturnAllCompaniesName() {
+    final List<String> allCompaniesName = workShop.getAllCompaniesNames();
+    assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
+  }
 
-    /**
-     * 7.
-     */
-    @Test
-    public void shouldReturnAllCompaniesNameAsString() {
-        final String allCompaniesName = workShop.getAllCompaniesNamesAsString();
-        assertEquals("Nescafe+Gerber+Nestea+Fanta+Sprite+Lays+Pepsi+Mirinda", allCompaniesName);
-    }
+  /**
+   * 7.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsString() {
+    final String allCompaniesName = workShop.getAllCompaniesNamesAsString();
+    assertEquals("Nescafe+Gerber+Nestea+Fanta+Sprite+Lays+Pepsi+Mirinda", allCompaniesName);
+  }
 
-    /**
-     * 8.
-     */
-    @Test
-    public void shouldReturnAllCompaniesNameAsStringUsingStringBuilder() {
-        final String allCompaniesName = workShop.getAllCompaniesNamesAsStringUsingStringBuilder();
-        assertEquals("Nescafe+Gerber+Nestea+Fanta+Sprite+Lays+Pepsi+Mirinda", allCompaniesName);
-    }
+  /**
+   * 8.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsStringUsingStringBuilder() {
+    final String allCompaniesName = workShop.getAllCompaniesNamesAsStringUsingStringBuilder();
+    assertEquals("Nescafe+Gerber+Nestea+Fanta+Sprite+Lays+Pepsi+Mirinda", allCompaniesName);
+  }
 
-    /**
-     * 9.
-     */
-    @Test
-    public void shouldReturnHowMuchAccountHaveUsers() {
-        final long accountAmount = workShop.getAllUserAccountsAmount();
-        assertEquals(35, accountAmount);
-    }
+  /**
+   * 9.
+   */
+  @Test
+  public void shouldReturnHowMuchAccountHaveUsers() {
+    final long accountAmount = workShop.getAllUserAccountsAmount();
+    assertEquals(35, accountAmount);
+  }
 
-    /**
-     * 10.
-     */
-    @Test
-    public void shouldReturnAllCompaniesNameAsLinkedList() {
-        final LinkedList<String> allCompaniesName = workShop.getAllCompaniesNamesAsLinkedList();
-        assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
-    }
+  /**
+   * 10.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsLinkedList() {
+    final LinkedList<String> allCompaniesName = workShop.getAllCompaniesNamesAsLinkedList();
+    assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
+  }
 
-    /**
-     * 11.
-     */
-    @Test
-    public void shouldReturnSetOfAllCurrencies() {
-        final String allUsedCurrecies = workShop.getAllCurrencies();
-        assertEquals("CHF, EUR, PLN, USD", allUsedCurrecies);
-    }
+  /**
+   * 11.
+   */
+  @Test
+  public void shouldReturnSetOfAllCurrencies() {
+    final String allUsedCurrecies = workShop.getAllCurrencies();
+    assertEquals("CHF, EUR, PLN, USD", allUsedCurrecies);
+  }
 
-    /**
-     * 12.
-     */
-    @Test
-    public void shouldReturnSetOfAllCurrenciesUsingGenerate() {
-        final String allUsedCurrecies = workShop.getAllCurrenciesUsingGenerate();
-        assertEquals("CHF, EUR, PLN, USD", allUsedCurrecies);
-    }
+  /**
+   * 13.
+   */
+  @Test
+  public void shouldReturnHowManyWomenAreInCompanies() {
+    final long womanAmount = workShop.getWomanAmount();
+    assertEquals(4, womanAmount);
+  }
 
-    /**
-     * 13.
-     */
-    @Test
-    public void shouldReturnHowManyWomenAreInCompanies() {
-        final long womanAmount = workShop.getWomanAmount();
-        assertEquals(4, womanAmount);
-    }
+  /**
+   * 14.
+   */
+  @Test
+  public void shouldCalculateAmountInPln() {
+    final Account accountWithOneZloty = Account.builder()
+        .amount(new BigDecimal("1.0"))
+        .currency(Currency.PLN)
+        .build();
 
-    /**
-     * 14.
-     */
-    @Test
-    public void shouldCalculateAmountInPln() {
-        final Account accountWithOneZloty = Account.builder()
-                .amount(new BigDecimal("1.0"))
-                .currency(Currency.PLN)
-                .build();
+    assertEquals(new BigDecimal("1.00"), workShop.getAccountAmountInPLN(accountWithOneZloty));
 
-        assertEquals(new BigDecimal("1.00"), workShop.getAccountAmountInPLN(accountWithOneZloty));
+    final Account accountWithOneDolar = Account.builder()
+        .amount(new BigDecimal("1.0"))
+        .currency(Currency.USD)
+        .build();
+    ;
+    assertEquals(new BigDecimal("3.720"), workShop.getAccountAmountInPLN(accountWithOneDolar).setScale(3, BigDecimal.ROUND_HALF_DOWN));
+  }
 
-        final Account accountWithOneDolar = Account.builder()
-                .amount(new BigDecimal("1.0"))
-                .currency(Currency.USD)
-                .build();
+  /**
+   * 15.
+   */
+  @Test
+  public void shouldGetTotalCashInPLNCorrectlySum() {
+    final List<Account> accounts = Arrays.asList(
+        Account.builder().amount(new BigDecimal(150)).currency(Currency.PLN).build(), // 150 PLN
+        Account.builder().amount(new BigDecimal(50)).currency(Currency.USD).build(), // 186 PLN
+        Account.builder().amount(new BigDecimal(300)).currency(Currency.PLN).build() // 300 PLN
+    );
 
-        assertEquals(new BigDecimal("3.720"), workShop.getAccountAmountInPLN(accountWithOneDolar));
-    }
+    assertEquals(636, workShop.getTotalCashInPLN(accounts).intValue());
+  }
 
-    /**
-     * 15.
-     */
-    @Test
-    public void shouldGetTotalCashInPLNCorrectlySum() {
-        final List<Account> accounts = Arrays.asList(
-                Account.builder().amount(new BigDecimal(150)).currency(Currency.PLN).build(), // 150 PLN
-                Account.builder().amount(new BigDecimal(50)).currency(Currency.USD).build(), // 186 PLN
-                Account.builder().amount(new BigDecimal(300)).currency(Currency.PLN).build() // 300 PLN
-        );
+  /**
+   * 16.
+   */
+  @Test
+  public void shouldReturnUserNameForPassedCondition() {
+    assertEquals("[Adam, Alfred, Amadeusz]", workShop.getUsersForPredicate(user -> user.getFirstName().startsWith("A")).toString());
+    assertEquals("[Karol, Zosia]", workShop.getUsersForPredicate(user -> user.getAge() > 50).toString());
+  }
 
-        assertEquals(636, workShop.getTotalCashInPLN(accounts).intValue());
-    }
+  /**
+   * 17.
+   */
+  @Test
+  public void shouldReturnWomanWhichAreOlderThan50() {
+    final List<String> oldWomam = workShop.getOldWoman(50);
+    assertEquals("[Zosia]", oldWomam.toString());
+  }
 
-    /**
-     * 16.
-     */
-    @Test
-    public void shouldReturnUserNameForPassedCondition() {
-        assertEquals("[Adam, Alfred, Amadeusz]", workShop.getUsersForPredicate(user -> user.getFirstName().startsWith("A")).toString());
-        assertEquals("[Karol, Zosia]", workShop.getUsersForPredicate(user -> user.getAge() > 50).toString());
-    }
+  /**
+   * 18.
+   */
+  @Test
+  public void shouldExecuteConsumerForEachCompany() {
+    final StringBuilder builder = new StringBuilder();
+    workShop.executeForEachCompany(company ->
+        builder
+            .append(company.getName())
+            .append("=")
+            .append(company.getUsers().size())
+            .append(" ")
+    );
 
-    /**
-     * 17.
-     */
-    @Test
-    public void shouldReturnWomanWhichAreOlderThan50() {
-        final List<String> oldWomam = workShop.getOldWoman(50);
-        assertEquals("[Karol]", oldWomam.toString());
-    }
+    assertEquals("Nescafe=4 Gerber=3 Nestea=1 Fanta=3 Sprite=2 Lays=2 Pepsi=3 Mirinda=2 ", builder.toString());
+  }
 
-    /**
-     * 18.
-     */
-    @Test
-    public void shouldExecuteConsumerForEachCompany() {
-        final StringBuilder builder = new StringBuilder();
-        workShop.executeForEachCompany(company ->
-                builder
-                        .append(company.getName())
-                        .append("=")
-                        .append(company.getUsers().size())
-                        .append(" ")
-        );
+  /**
+   * 19.
+   */
+  @Test
+  public void shouldGetRichestWoman() {
+    final Optional<User> richestWoman = workShop.getRichestWoman();
+    assertEquals("Zosia Psikuta", richestWoman.get().getFirstName() + " " + richestWoman.get().getLastName());
+  }
 
-        assertEquals("Nescafe=4 Gerber=3 Nestea=1 Fanta=3 Sprite=2 Lays=2 Pepsi=3 Mirinda=2 ", builder.toString());
-    }
+  /**
+   * 20.
+   */
+  @Test
+  public void shouldReturnNamesOfFirstNCompany() {
+    final Set<String> first10Company = workShop.getFirstNCompany(5);
+    assertEquals("[Sprite, Gerber, Fanta, Nescafe, Nestea]", first10Company.toString());
+  }
 
-    /**
-     * 19.
-     */
-    @Test
-    public void shouldGetRichestWoman() {
-        final Optional<User> richestWoman = workShop.getRichestWoman();
-        assertEquals("Zosia Psikuta", richestWoman.get().getFirstName() + " " + richestWoman.get().getLastName());
-    }
+  /**
+   * 21.
+   */
+  @Test
+  public void shouldFindROR1AsMostUsedAccountType() {
+    final AccountType mostUseAccoutType = workShop.getMostPopularAccountType();
+    assertEquals(AccountType.ROR1, mostUseAccoutType);
+  }
 
-    /**
-     * 20.
-     */
-    @Test
-    public void shouldReturnNamesOfFirstNCompany() {
-        final Set<String> first10Company = workShop.getFirstNCompany(5);
-        assertEquals("[Sprite, Gerber, Fanta, Nescafe, Nestea]", first10Company.toString());
-    }
+  /**
+   * 21.
+   */
+  @Test
+  public void shouldGetUserFoPassedPredicate() {
+    final User user = workShop.getUser(u -> u.getFirstName().equals("Adam"));
+    assertEquals("Wojcik", user.getLastName());
+  }
 
-    /**
-     * 21.
-     */
-    @Test
-    public void shouldFindROR1AsMostUsedAccountType() {
-        final AccountType mostUseAccoutType = workShop.getMostPopularAccountType();
-        assertEquals(AccountType.ROR1, mostUseAccoutType);
-    }
+  /**
+   * 22.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldGetUserFoPassedPredicateThrowException() {
+    workShop.getUser(u -> u.getFirstName().equals("Camillo"));
+  }
 
-    /**
-     * 21.
-     */
-    @Test
-    public void shouldGetUserFoPassedPredicate() {
-        final User user = workShop.getUser(u -> u.getFirstName().equals("Adam"));
-        assertEquals("Wojcik", user.getLastName());
-    }
+  /**
+   * 23.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserList() {
+    final Map<String, List<User>> companies = workShop.getUserPerCompany();
+    assertEquals(8, companies.size());
+    assertEquals("Bazuka", companies.get("Sprite").get(0).getLastName());
+  }
 
-    /**
-     * 22.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldGetUserFoPassedPredicateThrowException() {
-        workShop.getUser(u -> u.getFirstName().equals("Camillo"));
-    }
+  /**
+   * 24.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserListAsString() {
+    final Map<String, List<String>> companies = workShop.getUserPerCompanyAsString();
+    assertEquals(8, companies.size());
+    assertEquals("Jan Bazuka", companies.get("Sprite").get(0));
+  }
 
-    /**
-     * 23.
-     */
-    @Test
-    public void shouldReturnCompanyMapWithUserList() {
-        final Map<String, List<User>> companies = workShop.getUserPerCompany();
-        assertEquals(8, companies.size());
-        assertEquals("Bazuka", companies.get("Sprite").get(0).getLastName());
-    }
+  /**
+   * 25.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserListUsingPassedFunction() {
+    final Function<User, String> convertUserToString = user -> user.getFirstName() + " " + user.getLastName() + ": " + user.getAccounts().size();
+    final Map<String, List<String>> companies = workShop.getUserPerCompany(convertUserToString);
 
-    /**
-     * 24.
-     */
-    @Test
-    public void shouldReturnCompanyMapWithUserListAsString() {
-        final Map<String, List<String>> companies = workShop.getUserPerCompanyAsString();
-        assertEquals(8, companies.size());
-        assertEquals("Jan Bazuka", companies.get("Sprite").get(0));
-    }
+    assertEquals(8, companies.size());
+    assertEquals("Jan Bazuka: 3", companies.get("Sprite").get(0));
+  }
 
-    /**
-     * 25.
-     */
-    @Test
-    public void shouldReturnCompanyMapWithUserListUsingPassedFunction() {
-        final Function<User, String> convertUserToString = user -> user.getFirstName() + " " + user.getLastName() + ": " + user.getAccounts().size();
-        final Map<String, List<String>> companies = workShop.getUserPerCompany(convertUserToString);
+  /**
+   * 26.
+   */
+  @Test
+  public void shouldSegregateUserBySex() {
+    final Map<Boolean, Set<String>> usersBySex = workShop.getUserBySex();
+    assertEquals(13, usersBySex.get(true).size());
+    assertEquals(4, usersBySex.get(false).size());
 
-        assertEquals(8, companies.size());
-        assertEquals("Jan Bazuka: 3", companies.get("Sprite").get(0));
-    }
+    assertTrue(usersBySex.get(true).contains("Mocarz"));
+    assertTrue(usersBySex.get(false).contains("Warszawska"));
+  }
 
-    /**
-     * 26.
-     */
-    @Test
-    public void shouldSegregateUserBySex() {
-        final Map<Boolean, Set<String>> usersBySex = workShop.getUserBySex();
-        assertEquals(13, usersBySex.get(true).size());
-        assertEquals(4, usersBySex.get(false).size());
+  /**
+   * 27.
+   */
+  @Test
+  public void shouldCreateAccountsMap() {
+    final Map<String, Account> accounts = workShop.createAccountsMap();
+    assertTrue(accounts.size() == 35);
+  }
 
-        assertTrue(usersBySex.get(true).contains("Mocarz"));
-        assertTrue(usersBySex.get(false).contains("Warszawska"));
-    }
+  /**
+   * 28.
+   */
+  @Test
+  public void shouldCreateListOfUserNames() {
+    final String userNames = workShop.getUserNames();
 
-    /**
-     * 27.
-     */
-    @Test
-    public void shouldCreateAccountsMap() {
-        final Map<String, Account> accounts = workShop.createAccountsMap();
-        assertTrue(accounts.size() == 35);
-    }
+    assertNotNull(userNames);
+    assertTrue(userNames.startsWith("Adam Alfred Amadeusz Bartek Filip"));
+  }
 
-    /**
-     * 28.
-     */
-    @Test
-    public void shouldCreateListOfUserNames() {
-        final String userNames = workShop.getUserNames();
+  /**
+   * 29.
+   */
+  @Test
+  public void shouldCreateUserSet() {
+    final Set<User> users = workShop.getUsers();
 
-        assertNotNull(userNames);
-        assertTrue(userNames.startsWith("Adam Alfred Amadeusz Bartek Filip"));
-    }
+    assertEquals(10, users.size());
+  }
 
-    /**
-     * 29.
-     */
-    @Test
-    public void shouldCreateUserSet() {
-        final Set<User> users = workShop.getUsers();
+  /**
+   * 30.
+   */
+  @Test
+  public void shouldSaveAccountsListInFile() {
+    workShop.saveAccountsInFile("accounts.txt");
+  }
 
-        assertEquals(10, users.size());
-    }
+  /**
+   * 31.
+   */
+  @Test
+  public void shouldFindUser() {
+    final Optional<User> user = workShop.findUser(u -> u.getLastName().equals("Psikuta"));
 
-    /**
-     * 30.
-     */
-    @Test
-    public void shouldSaveAccountsListInFile() {
-        workShop.saveAccountsInFile("accounts.txt");
-    }
+    assertTrue(user.isPresent());
+    assertEquals("Zosia", user.get().getFirstName());
+  }
 
-    /**
-     * 31.
-     */
-    @Test
-    public void shouldFindUser() {
-        final Optional<User> user = workShop.findUser(u -> u.getLastName().equals("Psikuta"));
+  /**
+   * 32.
+   */
+  @Test
+  public void shouldGetUserAdultantStatus() {
+    final Optional<User> user = workShop.findUser(u -> u.getLastName().equals("Psikuta"));
+    final String adultatStatusOfPsikuta = workShop.getAdulterantStatus(user);
 
-        assertTrue(user.isPresent());
-        assertEquals("Zosia", user.get().getFirstName());
-    }
+    assertNotNull(adultatStatusOfPsikuta);
+    assertEquals("Zosia Psikuta ma lat 67", adultatStatusOfPsikuta);
 
-    /**
-     * 32.
-     */
-    @Test
-    public void shouldGetUserAdultantStatus() {
-        final Optional<User> user = workShop.findUser(u -> u.getLastName().equals("Psikuta"));
-        final String adultatStatusOfPsikuta = workShop.getAdultantStatus(user);
+    final Optional<User> userNotExisted = workShop.findUser(u -> u.getLastName().equals("Komorwski"));
+    final String adultantStatusNotExisted = workShop.getAdulterantStatus(userNotExisted);
 
-        assertNotNull(adultatStatusOfPsikuta);
-        assertEquals("Zosia Psikuta ma lat 67", adultatStatusOfPsikuta);
+    assertNotNull(adultantStatusNotExisted);
+    assertEquals("Brak użytkownika", adultantStatusNotExisted);
+  }
 
-        final Optional<User> userNotExisted = workShop.findUser(u -> u.getLastName().equals("Komorwski"));
-        final String adultantStatusNotExisted = workShop.getAdultantStatus(userNotExisted);
+  /**
+   * 33.
+   */
+  @Test
+  public void shouldSortAndDisplayUser() {
+    workShop.showAllUser();
+  }
 
-        assertNotNull(adultantStatusNotExisted);
-        assertEquals("Brak użytkownika", adultantStatusNotExisted);
-    }
+  /**
+   * 34.
+   */
+  @Test
+  public void shouldCountMoneyOnAllAccounts() {
+    final Map<AccountType, BigDecimal> moneyOnAccount = workShop.getMoneyOnAccounts();
 
-    /**
-     * 33.
-     */
-    @Test
-    public void shouldSortAndDisplayUser() {
-        workShop.showAllUser();
-    }
+    assertEquals(new BigDecimal("87461"), moneyOnAccount.get(AccountType.LO2).setScale(0, BigDecimal.ROUND_HALF_DOWN));
+  }
 
-    /**
-     * 34.
-     */
-    @Test
-    public void shouldCountMoneyOnAllAccounts() {
-        final Map<AccountType, BigDecimal> moneyOnAccount = workShop.getMoneyOnAccounts();
+  /**
+   * 35.
+   */
+  @Test
+  public void shouldCalculateSumOfSquareAge() {
+    final int sumOfSquareAges = workShop.getAgeSquaresSum();
+    assertEquals(27720, sumOfSquareAges);
+  }
 
-        assertEquals(new BigDecimal("87461.4992"), moneyOnAccount.get(AccountType.LO2));
-    }
+  /**
+   * 36.
+   */
+  @Test
+  public void shouldGetRandomNUser() {
+    final List<User> randomUsers = workShop.getRandomUsers(4);
 
-    /**
-     * 35.
-     */
-    @Test
-    public void shouldCalculateSumOfSquareAge() {
-        final int sumOfSquareAges = workShop.getAgeSquaresSum();
-        assertEquals(27720, sumOfSquareAges);
-    }
+    assertEquals(4, new HashSet<>(randomUsers).size());
+  }
 
-    /**
-     * 36.
-     */
-    @Test
-    public void shouldGetRandomNUser() {
-        final List<User> randomUsers = workShop.getRandomUsers(4);
+  /**
+   * 37.
+   */
+  @Test(timeout = 15) // maksymalnie 25ms jezeli masz wolny komputer.
+  public void shouldGetFastRandomNUser() {
+    final List<User> randomUsers = workShop.getRandomUsers(20);
 
-        assertEquals(4, randomUsers.size());
-    }
+    assertEquals(20, randomUsers.size());
+  }
 
-    /**
-     * 37.
-     */
-    @Test(timeout = 15) // maksymalnie 25ms jezeli masz wolny komputer.
-    public void shouldGetFastRandomNUser() {
-        final List<User> randomUsers = workShop.getRandomUsers(20);
+  /**
+   * 38.
+   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
+   * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
+   */
+  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
-        assertEquals(20, randomUsers.size());
-    }
+  /**
+   * 39. Policz ile pieniędzy w złotówkach jest na kontach osób które nie są ani kobietą ani mężczyzną.
+   */
+  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
-    /**
-     * 38.
-     * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
-     * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
-     */
-    // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
-
-    /**
-     * 39. Policz ile pieniędzy w złotówkach jest na kontach osób które nie są ani kobietą ani mężczyzną.
-     */
-    // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
-
-    /**
-     * 40. Wymyśl treść polecenia i je zaimplementuj.
-     */
-    // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
+  /**
+   * 40. Wymyśl treść polecenia i je zaimplementuj.
+   */
+  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
 }
