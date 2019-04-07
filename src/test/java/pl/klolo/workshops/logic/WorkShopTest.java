@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
@@ -329,14 +330,6 @@ public class WorkShopTest {
   }
 
   /**
-   * 30.
-   */
-  @Test
-  public void shouldSaveAccountsListInFile() {
-    workShop.saveAccountsInFile("accounts.txt");
-  }
-
-  /**
    * 31.
    */
   @Test
@@ -353,13 +346,13 @@ public class WorkShopTest {
   @Test
   public void shouldGetUserAdultantStatus() {
     final Optional<User> user = workShop.findUser(u -> u.getLastName().equals("Psikuta"));
-    final String adultatStatusOfPsikuta = workShop.getAdulterantStatus(user);
+    final String adultatStatusOfPsikuta = workShop.getAdultantStatusAsStream(user);
 
     assertNotNull(adultatStatusOfPsikuta);
     assertEquals("Zosia Psikuta ma lat 67", adultatStatusOfPsikuta);
 
     final Optional<User> userNotExisted = workShop.findUser(u -> u.getLastName().equals("Komorwski"));
-    final String adultantStatusNotExisted = workShop.getAdulterantStatus(userNotExisted);
+    final String adultantStatusNotExisted = workShop.getAdultantStatusAsStream(userNotExisted);
 
     assertNotNull(adultantStatusNotExisted);
     assertEquals("Brak użytkownika", adultantStatusNotExisted);
@@ -413,10 +406,380 @@ public class WorkShopTest {
   }
 
   /**
+   * 1.
+   */
+  @Test
+  public void shouldReturnAmountOfHoldingWhereIsAtLeastOneCompanyAsStream() {
+    final long amountOfCompanies = workShop.getHoldingsWhereAreCompaniesAsStream();
+    assertEquals(3, amountOfCompanies);
+  }
+
+  /**
+   * 2.
+   */
+  @Test
+  public void shouldReturnLowerCaseNameOfAllHoldingsAsStream() {
+    final List<String> holdingNames = workShop.getHoldingNamesAsStream();
+    assertEquals("[nestle, coca-cola, pepsico]", holdingNames.toString());
+  }
+
+  /**
+   * 3.
+   */
+  @Test
+  public void shouldReturnNamesOfAllHoldingInStringAsStream() {
+    final String holdingNames = workShop.getHoldingNamesAsStringAsStream();
+    assertEquals("(Coca-Cola, Nestle, Pepsico)", holdingNames);
+  }
+
+  /**
+   * 4.
+   */
+  @Test
+  public void shouldCountCompaniesInHoldingsAsStream() {
+    final long companiesAmount = workShop.getCompaniesAmountAsStream();
+    assertEquals(8, companiesAmount);
+  }
+
+  /**
+   * 5.
+   */
+  @Test
+  public void shouldCountAllUsersInAllCompaniesAsStream() {
+    final long userAmount = workShop.getAllUserAmountAsStream();
+    assertEquals(20, userAmount);
+  }
+
+  /**
+   * 6.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsStream() {
+    final List<String> allCompaniesName = workShop.getAllCompaniesNamesAsStream();
+    assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
+  }
+
+  /**
+   * 7.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsStringAsStream() {
+    final String allCompaniesName = workShop.getAllCompaniesNamesAsStringAsStream();
+    assertEquals("Nescafe+Gerber+Nestea+Fanta+Sprite+Lays+Pepsi+Mirinda", allCompaniesName);
+  }
+
+  /**
+   * 9.
+   */
+  @Test
+  public void shouldReturnHowMuchAccountHaveUsersAsStream() {
+    final long accountAmount = workShop.getAllUserAccountsAmountAsStream();
+    assertEquals(35, accountAmount);
+  }
+
+  /**
+   * 10.
+   */
+  @Test
+  public void shouldReturnAllCompaniesNameAsLinkedListAsStream() {
+    final LinkedList<String> allCompaniesName = workShop.getAllCompaniesNamesAsLinkedListAsStream();
+    assertEquals("[Nescafe, Gerber, Nestea, Fanta, Sprite, Lays, Pepsi, Mirinda]", allCompaniesName.toString());
+  }
+
+  /**
+   * 11.
+   */
+  @Test
+  public void shouldReturnSetOfAllCurrenciesAsStream() {
+    final String allUsedCurrecies = workShop.getAllCurrenciesAsStream();
+    assertEquals("CHF, EUR, PLN, USD", allUsedCurrecies);
+  }
+
+  /**
+   * 13.
+   */
+  @Test
+  public void shouldReturnHowManyWomenAreInCompaniesAsStream() {
+    final long womanAmount = workShop.getWomanAmountAsStream();
+    assertEquals(4, womanAmount);
+  }
+
+  /**
+   * 14.
+   */
+  @Test
+  public void shouldCalculateAmountInPlnAsStream() {
+    final Account accountWithOneZloty = Account.builder()
+        .amount(new BigDecimal("1.0"))
+        .currency(Currency.PLN)
+        .build();
+
+    assertEquals(new BigDecimal("1.00"), workShop.getAccountAmountInPLNAsStream(accountWithOneZloty));
+
+    final Account accountWithOneDolar = Account.builder()
+        .amount(new BigDecimal("1.0"))
+        .currency(Currency.USD)
+        .build();
+    ;
+    assertEquals(new BigDecimal("3.720"), workShop.getAccountAmountInPLNAsStream(accountWithOneDolar).setScale(3, BigDecimal.ROUND_HALF_DOWN));
+  }
+
+  /**
+   * 15.
+   */
+  @Test
+  public void shouldGetTotalCashInPLNCorrectlySumAsStream() {
+    final List<Account> accounts = Arrays.asList(
+        Account.builder().amount(new BigDecimal(150)).currency(Currency.PLN).build(), // 150 PLN
+        Account.builder().amount(new BigDecimal(50)).currency(Currency.USD).build(), // 186 PLN
+        Account.builder().amount(new BigDecimal(300)).currency(Currency.PLN).build() // 300 PLN
+    );
+
+    assertEquals(636, workShop.getTotalCashInPLNAsStream(accounts).intValue());
+  }
+
+  /**
+   * 16.
+   */
+  @Test
+  public void shouldReturnUserNameForPassedConditionAsStream() {
+    assertEquals("[Adam, Alfred, Amadeusz]", workShop.getUsersForPredicateAsStream(user -> user.getFirstName().startsWith("A")).toString());
+    assertEquals("[Karol, Zosia]", workShop.getUsersForPredicateAsStream(user -> user.getAge() > 50).toString());
+  }
+
+  /**
+   * 17.
+   */
+  @Test
+  public void shouldReturnWomanWhichAreOlderThan50AsStream() {
+    final List<String> oldWomam = workShop.getOldWomanAsStream(50);
+    assertEquals("[Zosia]", oldWomam.toString());
+  }
+
+  /**
+   * 19.
+   */
+  @Test
+  public void shouldGetRichestWomanAsStream() {
+    final Optional<User> richestWoman = workShop.getRichestWomanAsStream();
+    assertEquals("Zosia Psikuta", richestWoman.get().getFirstName() + " " + richestWoman.get().getLastName());
+  }
+
+  /**
+   * 20.
+   */
+  @Test
+  public void shouldReturnNamesOfFirstNCompanyAsStream() {
+    final Set<String> first10Company = workShop.getFirstNCompanyAsStream(5);
+    assertEquals("[Sprite, Gerber, Fanta, Nescafe, Nestea]", first10Company.toString());
+  }
+
+  /**
+   * 21.
+   */
+  @Test
+  public void shouldFindROR1AsMostUsedAccountTypeAsStream() {
+    final AccountType mostUseAccoutType = workShop.getMostPopularAccountTypeAsStream();
+    assertEquals(AccountType.ROR1, mostUseAccoutType);
+  }
+
+  /**
+   * 21.
+   */
+  @Test
+  public void shouldGetUserFoPassedPredicateAsStream() {
+    final User user = workShop.getUserAsStream(u -> u.getFirstName().equals("Adam"));
+    assertEquals("Wojcik", user.getLastName());
+  }
+
+  /**
+   * 22.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldGetUserFoPassedPredicateThrowExceptionAsStream() {
+    workShop.getUserAsStream(u -> u.getFirstName().equals("Camillo"));
+  }
+
+  /**
+   * 23.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserListAsStream() {
+    final Map<String, List<User>> companies = workShop.getUserPerCompanyAsStream();
+    assertEquals(8, companies.size());
+    assertEquals("Bazuka", companies.get("Sprite").get(0).getLastName());
+  }
+
+  /**
+   * 24.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserListAsStringAsStream() {
+    final Map<String, List<String>> companies = workShop.getUserPerCompanyAsStringAsStream();
+    assertEquals(8, companies.size());
+    assertEquals("Jan Bazuka", companies.get("Sprite").get(0));
+  }
+
+  /**
+   * 25.
+   */
+  @Test
+  public void shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream() {
+    final Function<User, String> convertUserToString = user -> user.getFirstName() + " " + user.getLastName() + ": " + user.getAccounts().size();
+    final Map<String, List<String>> companies = workShop.getUserPerCompanyAsStream(convertUserToString);
+
+    assertEquals(8, companies.size());
+    assertEquals("Jan Bazuka: 3", companies.get("Sprite").get(0));
+  }
+
+  /**
+   * 26.
+   */
+  @Test
+  public void shouldSegregateUserBySexAsStream() {
+    final Map<Boolean, Set<String>> usersBySex = workShop.getUserBySexAsStream();
+    assertEquals(13, usersBySex.get(true).size());
+    assertEquals(4, usersBySex.get(false).size());
+
+    assertTrue(usersBySex.get(true).contains("Mocarz"));
+    assertTrue(usersBySex.get(false).contains("Warszawska"));
+  }
+
+  /**
+   * 27.
+   */
+  @Test
+  public void shouldCreateAccountsMapAsStream() {
+    final Map<String, Account> accounts = workShop.createAccountsMapAsStream();
+    assertTrue(accounts.size() == 35);
+  }
+
+  /**
+   * 28.
+   */
+  @Test
+  public void shouldCreateListOfUserNamesAsStream() {
+    final String userNames = workShop.getUserNamesAsStream();
+
+    assertNotNull(userNames);
+    assertTrue(userNames.startsWith("Adam Alfred Amadeusz Bartek Filip"));
+  }
+
+  /**
+   * 29.
+   */
+  @Test
+  public void shouldCreateUserSetAsStream() {
+    final Set<User> users = workShop.getUsersAsStream();
+
+    assertEquals(10, users.size());
+  }
+
+  /**
+   * 31.
+   */
+  @Test
+  public void shouldFindUserAsStream() {
+    final Optional<User> user = workShop.findUserAsStream(u -> u.getLastName().equals("Psikuta"));
+
+    assertTrue(user.isPresent());
+    assertEquals("Zosia", user.get().getFirstName());
+  }
+
+  /**
+   * 32.
+   */
+  @Test
+  public void shouldGetUserAdultantStatusAsStream() {
+    final Optional<User> user = workShop.findUserAsStream(u -> u.getLastName().equals("Psikuta"));
+    final String adultatStatusOfPsikuta = workShop.getAdultantStatusAsStream(user);
+
+    assertNotNull(adultatStatusOfPsikuta);
+    assertEquals("Zosia Psikuta ma lat 67", adultatStatusOfPsikuta);
+
+    final Optional<User> userNotExisted = workShop.findUser(u -> u.getLastName().equals("Komorwski"));
+    final String adultantStatusNotExisted = workShop.getAdultantStatusAsStream(userNotExisted);
+
+    assertNotNull(adultantStatusNotExisted);
+    assertEquals("Brak użytkownika", adultantStatusNotExisted);
+  }
+
+  /**
+   * 33.
+   */
+  @Test
+  public void shouldSortAndDisplayUserAsStream() {
+    workShop.showAllUserAsStream();
+  }
+
+  /**
+   * 34.
+   */
+  @Test
+  public void shouldCountMoneyOnAllAccountsAsStream() {
+    final Map<AccountType, BigDecimal> moneyOnAccount = workShop.getMoneyOnAccountsAsStream();
+
+    assertEquals(new BigDecimal("87461"), moneyOnAccount.get(AccountType.LO2).setScale(0, BigDecimal.ROUND_HALF_DOWN));
+  }
+
+  /**
+   * 35.
+   */
+  @Test
+  public void shouldCalculateSumOfSquareAgeAsStream() {
+    final int sumOfSquareAges = workShop.getAgeSquaresSumAsStream();
+    assertEquals(27720, sumOfSquareAges);
+  }
+
+  /**
+   * 36.
+   */
+  @Test
+  public void shouldGetRandomNUserAsStream() {
+    final List<User> randomUsers = workShop.getRandomUsersAsStream(4);
+
+    assertEquals(4, new HashSet<>(randomUsers).size());
+  }
+
+  /**
+   * 37.
+   */
+  @Test(timeout = 15) // maksymalnie 25ms jezeli masz wolny komputer.
+  public void shouldGetFastRandomNUserAsStream() {
+    final List<User> randomUsers = workShop.getRandomUsersAsStream(20);
+
+    assertEquals(20, randomUsers.size());
+  }
+  /**
    * 38.
    * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
    * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
    */
+  @Test
+  public void shouldGetAccountUserMoneyInPLNMap() {
+    Map<AccountType, Map<User, BigDecimal>> accountUserMoneyInPLNMap = workShop.getAccountUserMoneyInPLNMap();
+    assertNotNull(accountUserMoneyInPLNMap);
+    assertEquals(accountUserMoneyInPLNMap.size(), 6L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
+  }
+  /**
+   * 38.
+   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
+   * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
+   */
+  @Test
+  public void shouldGetAccountUserMoneyInPLNMapAsStream() {
+    Map<AccountType, Map<User, BigDecimal>> accountUserMoneyInPLNMap = workShop.getAccountUserMoneyInPLNMapAsStream();
+    assertNotNull(accountUserMoneyInPLNMap);
+    assertEquals(accountUserMoneyInPLNMap.size(), 6L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3L);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
+  }
   // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
   /**
