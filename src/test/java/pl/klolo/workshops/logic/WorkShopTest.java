@@ -10,7 +10,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
@@ -21,6 +20,7 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 import pl.klolo.workshops.domain.Account;
 import pl.klolo.workshops.domain.AccountType;
 import pl.klolo.workshops.domain.Currency;
+import pl.klolo.workshops.domain.Permit;
 import pl.klolo.workshops.domain.User;
 
 @RunWith(BlockJUnit4ClassRunner.class)
@@ -750,10 +750,10 @@ public class WorkShopTest {
 
     assertEquals(20, randomUsers.size());
   }
+
   /**
-   * 38.
-   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
-   * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
+   * 38. Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma
+   * pieniędzy na rachunku danego typu przeliczona na złotkówki.
    */
   @Test
   public void shouldGetAccountUserMoneyInPLNMap() {
@@ -765,30 +765,57 @@ public class WorkShopTest {
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
   }
+
   /**
-   * 38.
-   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest
-   * obiekt User a wartoscią suma pieniędzy na rachunku danego typu przeliczona na złotkówki.
+   * 38. Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma
+   * pieniędzy na rachunku danego typu przeliczona na złotkówki.
    */
   @Test
   public void shouldGetAccountUserMoneyInPLNMapAsStream() {
     Map<AccountType, Map<User, BigDecimal>> accountUserMoneyInPLNMap = workShop.getAccountUserMoneyInPLNMapAsStream();
     assertNotNull(accountUserMoneyInPLNMap);
-    assertEquals(accountUserMoneyInPLNMap.size(), 6L);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6L);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3L);
+    assertEquals(accountUserMoneyInPLNMap.size(), 6);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6);
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3);
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
   }
-  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
+  /**
+   * 40. Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana
+   * po ilości środków na koncie w kolejności od największej do najmniejszej ich ilości.
+   */
+  @Test
+  public void shouldReturnUsersByTheyPermitsSorted() {
+    Map<Permit, List<User>> usersByTheyPermitsSorted = workShop.getUsersByTheyPermitsSorted();
+    assertNotNull(usersByTheyPermitsSorted);
+    assertEquals(usersByTheyPermitsSorted.size(), 4);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).size(), 16);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(0).getLastName(), "Bazuka");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).size(), 13);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(0).getLastName(), "Marcinowicz");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Dreh");
+  }
+
+  /**
+   * 40. Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana
+   * po ilości środków na koncie w kolejności od największej do najmniejszej ich ilości.
+   */
+  @Test
+  public void shouldReturnUsersByTheyPermitsSortedAsStream() {
+    Map<Permit, List<User>> usersByTheyPermitsSorted = workShop.getUsersByTheyPermitsSortedAsStream();
+    assertNotNull(usersByTheyPermitsSorted);
+    assertEquals(usersByTheyPermitsSorted.size(), 4);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).size(), 16);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(0).getLastName(), "Bazuka");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).size(), 13);
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(0).getLastName(), "Marcinowicz");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Dreh");
+  }
   /**
    * 39. Policz ile pieniędzy w złotówkach jest na kontach osób które nie są ani kobietą ani mężczyzną.
-   */
-  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
-
-  /**
-   * 40. Wymyśl treść polecenia i je zaimplementuj.
    */
   // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 

@@ -15,6 +15,7 @@ import pl.klolo.workshops.domain.AccountType;
 import pl.klolo.workshops.domain.Company;
 import pl.klolo.workshops.domain.Currency;
 import pl.klolo.workshops.domain.Holding;
+import pl.klolo.workshops.domain.Permit;
 import pl.klolo.workshops.domain.User;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
 
@@ -537,6 +538,24 @@ class WorkShop {
    * na rachunku danego typu przeliczona na złotkówki.  Napisz to za pomocą strumieni.
    */
   Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMapAsStream() {
+    return null;
+  }
+
+  /**
+   * Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
+   * ilości środków na koncie w kolejności od największej do najmniejszej ich ilości liczonej w złotówkach.
+   */
+
+  Map<Permit, List<User>> getUsersByTheyPermitsSorted() {
+    return null;
+  }
+
+  /**
+   * Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
+   * ilości środków na koncie w kolejności od największej do najmniejszej ich ilości liczonej w złotówkach. Napisz to za pomoca strumieni.
+   */
+
+  Map<Permit, List<User>> getUsersByTheyPermitsSortedAsStream() {
     return null;
   }
 
