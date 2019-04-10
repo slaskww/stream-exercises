@@ -3,12 +3,10 @@ Celem warsztatu jest przećwiczenie strumieni Javy 8 na praktycznych przykładac
 z opisem jaki znajduje się w komentarzu do metody. Prawidłowo zaimplementowana metoda naprawi nie działający test w klasie WorkShopTest.
 Jeżeli nie wiesz jak zaimplementować daną metodę, zostaw ją na później. Kolejność implementacji w większości przypadków nie ma znaczenia, chodź 
 mogą się pojawić funkcje które wykorzystują funkcje implementowane w poprzednich testach. Zadania zostały tak ułożone żeby wymusić użycie 
-wszystkich metod z interfejsu _Stream_. 
+wszystkich metod z interfejsu _Stream_. Podczas implementacji nie używamy pętli, if-ów, switchy oraz zmiennych (wystarczą stałe). 
 
-Ćwiczeń jest 40, testy do metod jakie należy zaimplementować znajdują się w _WorkShopTest_. Czas potrzebny na wykonanie ćwiczeń może się 
-wahać od 2h do 6h. Po skończeniu ćwiczeń powinieneś umieć wykorzystać strumienie w prawdziwej aplikacji.
-
-Podczas implementacji nie używamy pętli, if-ów, switchy oraz zmiennych (wystarczą stałe). 
+## Update
+Dodane zostały zadania implementacyjne bez użycia strumieni. Podczas ich implementacji można wykorzystywać wszystkie możliwości jakie daje Java.
 
 ## Wymagania
   - Podstawowa znajomość Javy 
@@ -17,7 +15,7 @@ Podczas implementacji nie używamy pętli, if-ów, switchy oraz zmiennych (wysta
   
 ## Zadania do wykonania
 
-  1. Uruchom budowanie poprzez Gradle w celu ściągnięcia potrzebnych bibliotek
+  1. Uruchom budowanie poprzez Maven clean install w celu ściągnięcia potrzebnych bibliotek
   1. Zaimplementuj wszystkie metody w klasie WorkShop, tak żeby działały testy jednostkowe w klasie 
   WorkShopTest
   1. Powtarzające sie fragmenty kodu umieść w osobnych metodach. 
