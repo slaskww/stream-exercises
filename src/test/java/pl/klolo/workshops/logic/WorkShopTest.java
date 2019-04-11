@@ -189,8 +189,8 @@ public class WorkShopTest {
    */
   @Test
   public void shouldReturnWomanWhichAreOlderThan50() {
-    final List<String> oldWomam = workShop.getOldWoman(50);
-    assertEquals("[Zosia]", oldWomam.toString());
+    final List<String> oldWoman = workShop.getOldWoman(50);
+    assertEquals("[Zosia]", oldWoman.toString());
   }
 
   /**
@@ -233,8 +233,8 @@ public class WorkShopTest {
    */
   @Test
   public void shouldFindROR1AsMostUsedAccountType() {
-    final AccountType mostUseAccoutType = workShop.getMostPopularAccountType();
-    assertEquals(AccountType.ROR1, mostUseAccoutType);
+    final AccountType mostUseAccountType = workShop.getMostPopularAccountType();
+    assertEquals(AccountType.ROR1, mostUseAccountType);
   }
 
   /**
@@ -814,9 +814,28 @@ public class WorkShopTest {
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(0).getLastName(), "Marcinowicz");
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Dreh");
   }
-  /**
-   * 39. Policz ile pieniędzy w złotówkach jest na kontach osób które nie są ani kobietą ani mężczyzną.
-   */
-  // TODO: Napisz test z możliwie wszystkimi najważniejszymi assercjami
 
+  @Test
+  public void shouldDivideUsersByPredicate() {
+    final Map<Boolean, List<User>> usersByPredicate = workShop.divideUsersByPredicate(user -> user.getPermits().size() > 1);
+    assertNotNull(usersByPredicate);
+    assertEquals(16, usersByPredicate.get(true).size());
+    assertEquals(4, usersByPredicate.get(false).size());
+    final Map<Boolean, List<User>> usersByPredicate2 = workShop.divideUsersByPredicate(user -> user.getAge() > 30);
+    assertNotNull(usersByPredicate2);
+    assertEquals(9, usersByPredicate2.get(true).size());
+    assertEquals(11, usersByPredicate2.get(false).size());
+  }
+
+  @Test
+  public void shouldDivideUsersByPredicateAsStream() {
+    final Map<Boolean, List<User>> usersByPredicate = workShop.divideUsersByPredicateAsStream(user -> user.getPermits().size() > 1);
+    assertNotNull(usersByPredicate);
+    assertEquals(16, usersByPredicate.get(true).size());
+    assertEquals(4, usersByPredicate.get(false).size());
+    final Map<Boolean, List<User>> usersByPredicate2 = workShop.divideUsersByPredicateAsStream(user -> user.getAge() > 30);
+    assertNotNull(usersByPredicate2);
+    assertEquals(9, usersByPredicate2.get(true).size());
+    assertEquals(11, usersByPredicate2.get(false).size());
+  }
 }

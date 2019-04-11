@@ -560,6 +560,22 @@ class WorkShop {
   }
 
   /**
+   * Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
+   * List<Users>
+   */
+  Map<Boolean, List<User>> divideUsersByPredicate(final Predicate<User> predicate) {
+    return null;
+  }
+
+  /**
+   * Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
+   * List<Users>. Wykonaj zadanie za pomoca strumieni.
+   */
+  Map<Boolean, List<User>> divideUsersByPredicateAsStream(final Predicate<User> predicate) {
+    return null;
+  }
+
+  /**
    * Zwraca strumień wszystkich firm.
    */
   private Stream<Company> getCompanyStream() {
