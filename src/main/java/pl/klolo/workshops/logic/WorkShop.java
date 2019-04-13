@@ -5,15 +5,12 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import pl.klolo.workshops.domain.Account;
-import pl.klolo.workshops.domain.AccountType;
-import pl.klolo.workshops.domain.Company;
+
+import pl.klolo.workshops.domain.*;
 import pl.klolo.workshops.domain.Currency;
-import pl.klolo.workshops.domain.Holding;
-import pl.klolo.workshops.domain.Permit;
-import pl.klolo.workshops.domain.User;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
 
 import static java.util.Objects.nonNull;
@@ -117,36 +114,66 @@ class WorkShop {
    */
   long getCompaniesAmount() {
 
+long numberOfCompanies = 0;
 
+    for (Holding holding:  holdings) {
+     numberOfCompanies +=  holding.getCompanies().size();
+    }
 
+    return numberOfCompanies;
   }
 
   /**
    * Zwraca liczbę firm we wszystkich holdingach. Napisz to za pomocą strumieni.
    */
   long getCompaniesAmountAsStream() {
-    return -1;
+
+    return holdings.stream()
+            .map(holding -> holding.getCompanies().size())
+            .mapToLong(value -> (long) value).sum();
+
   }
 
   /**
    * Zwraca liczbę wszystkich pracowników we wszystkich firmach.
    */
   long getAllUserAmount() {
-    return -1;
+
+    long allEmployees = 0;
+
+    for (Holding holding: holdings) {
+
+      for (Company company :holding.getCompanies()){
+
+       allEmployees += company.getUsers().size();
+      }
+    }
+    return allEmployees;
   }
 
   /**
    * Zwraca liczbę wszystkich pracowników we wszystkich firmach. Napisz to za pomocą strumieni.
    */
   long getAllUserAmountAsStream() {
-    return -1;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies().stream())
+            .map(company -> company.getUsers().size())
+            .mapToLong(value -> (long) value).sum();
   }
 
   /**
    * Zwraca listę wszystkich nazw firm w formie listy.
    */
   List<String> getAllCompaniesNames() {
-    return null;
+
+    List<String> companiesNames = new ArrayList<>();
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        companiesNames.add(company.getName());
+      }
+    }
+    return companiesNames;
   }
 
   /**
@@ -154,14 +181,23 @@ class WorkShop {
    * pomocą strumieni.
    */
   List<String> getAllCompaniesNamesAsStream() {
-    return null;
+    return holdings.stream()
+                    .flatMap(holding -> holding.getCompanies().stream().map(company -> company.getName()))
+                    .collect(Collectors.toList());
   }
 
   /**
    * Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList.
    */
   LinkedList<String> getAllCompaniesNamesAsLinkedList() {
-    return null;
+    LinkedList<String> companiesNames = new LinkedList<>();
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        companiesNames.add(company.getName());
+      }
+    }
+    return companiesNames;
   }
 
   /**
@@ -169,21 +205,38 @@ class WorkShop {
    * pomocą strumieni.
    */
   LinkedList<String> getAllCompaniesNamesAsLinkedListAsStream() {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies().stream().map(company -> company.getName()))
+            .collect(Collectors.toCollection(LinkedList::new));
   }
 
   /**
    * Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+"
    */
   String getAllCompaniesNamesAsString() {
-    return null;
+
+    StringBuilder companiesNames = new StringBuilder();
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        companiesNames.append(company.getName());
+        companiesNames.append('+');
+      }
+    }
+    companiesNames.deleteCharAt(companiesNames.toString().length()-1);
+    return companiesNames.toString();
   }
 
   /**
    * Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+" Napisz to za pomocą strumieni.
    */
   String getAllCompaniesNamesAsStringAsStream() {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding
+                    .getCompanies()
+                    .stream()
+                    .map(company -> company.getName()))
+            .collect(Collectors.joining("+"));
   }
 
   /**
@@ -193,35 +246,76 @@ class WorkShop {
    * UWAGA: Zadanie z gwiazdką. Nie używamy zmiennych.
    */
   String getAllCompaniesNamesAsStringUsingStringBuilder() {
-    return null;
-  }
+    return holdings.stream()
+            .flatMap(holding -> holding
+                    .getCompanies()
+                    .stream()
+                    .map(company -> company.getName()))
+            .collect(Collector.of(StringBuilder::new, (StringBuilder, str) -> {if(StringBuilder.toString().equals("")){  StringBuilder.append(str);} else{ StringBuilder.append("+").append(str);}}, StringBuilder::append, StringBuilder::toString));
 
+  }
   /**
    * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
    */
   long getAllUserAccountsAmount() {
-    return -1;
+
+    long accountAmount = 0;
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        for (User user: company.getUsers()) {
+         accountAmount += user.getAccounts().size();
+        }
+      }
+    }
+    return accountAmount;
   }
 
   /**
    * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach. Napisz to za pomocą strumieni.
    */
   long getAllUserAccountsAmountAsStream() {
-    return -1;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies().stream().flatMap(company -> company.getUsers().stream().map(user -> user.getAccounts().size())))
+            .mapToLong(value -> (long) value).sum();
   }
 
   /**
    * Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane.
    */
   String getAllCurrencies() {
-    return null;
+
+Set<String> allCurrencies = new TreeSet<>();
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        for (User user: company.getUsers()) {
+          for (Account account: user.getAccounts()){
+           allCurrencies.add(account.getCurrency().name()); //zwraca nazwe enuma
+          }
+        }
+      }
+    }
+   return allCurrencies.toString().replace("[", "").replace("]", "");
   }
 
   /**
    * Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane. Napisz to za pomocą strumieni.
    */
   String getAllCurrenciesAsStream() {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding
+                    .getCompanies()
+                    .stream()
+                    .flatMap(company -> company.getUsers()
+                            .stream()
+                            .flatMap(user -> user.getAccounts()
+                                    .stream()
+                                    .map(account -> account.getCurrency().name()))))
+            .distinct()
+            .sorted()
+            .collect(Collectors.joining(", "));
+
   }
 
   /**
@@ -231,24 +325,49 @@ class WorkShop {
    * @see #getAllCurrencies()
    */
   String getAllCurrenciesUsingGenerate() {
-    return null;
+    return "";
+            //Stream.generate();
   }
 
   /**
    * Zwraca liczbę kobiet we wszystkich firmach.
    */
   long getWomanAmount() {
-    return -1;
+    long  womenAmount =  0;
+
+    for (Holding holding: holdings) {
+      for (Company company: holding.getCompanies()) {
+        for (User user: company.getUsers()) {
+          if(user.getSex().name() == "WOMAN"){
+            womenAmount++;
+          }
+        }
+      }
+    }
+    return womenAmount;
   }
 
   /**
    * Zwraca liczbę kobiet we wszystkich firmach. Powtarzający się fragment kodu tworzący strumień uzytkowników umieść w osobnej metodzie. Predicate określający
-   * czy mamy doczynienia z kobietą inech będzie polem statycznym w klasie. Napisz to za pomocą strumieni.
+   * czy mamy doczynienia z kobietą Inech będzie polem statycznym w klasie. Napisz to za pomocą strumieni.
    */
   long getWomanAmountAsStream() {
-    return -1;
+    String woman = "WOMAN";
+    return holdings.stream()
+            .flatMap(holding -> holding
+                    .getCompanies()
+                    .stream()
+                    .flatMap(company -> company.getUsers()
+                            .stream()
+                            .filter(user -> user.getSex() == Sex.WOMAN)))
+                    .count();
   }
 
+//  List<User> getUsers() {
+//
+//    return holdings.stream()
+//            .flatMap(holding -> holding.getCompanies().stream().flatMap(company -> company.getUsers().addAll()))//.collect(Collectors.toList());
+//  }
 
   /**
    * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Ustaw precyzje na 3 miejsca po przecinku.
