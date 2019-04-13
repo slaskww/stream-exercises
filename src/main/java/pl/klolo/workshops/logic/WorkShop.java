@@ -1,14 +1,11 @@
 package pl.klolo.workshops.logic;
 
 import java.math.BigDecimal;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import pl.klolo.workshops.domain.Account;
 import pl.klolo.workshops.domain.AccountType;
@@ -18,6 +15,8 @@ import pl.klolo.workshops.domain.Holding;
 import pl.klolo.workshops.domain.Permit;
 import pl.klolo.workshops.domain.User;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
+
+import static java.util.Objects.nonNull;
 
 class WorkShop {
 
@@ -38,49 +37,88 @@ class WorkShop {
    * Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma.
    */
   long getHoldingsWhereAreCompanies() {
-    return -1;
+     int numberOfHolldings = 0;
+    for (Holding holding: holdings) {
+      if(holding.getCompanies().size() > 0 && nonNull(holding.getCompanies())){
+        numberOfHolldings++;
+      }
+    }
+  return numberOfHolldings;
   }
 
   /**
    * Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma. Napisz to za pomocą strumieni.
    */
   long getHoldingsWhereAreCompaniesAsStream() {
-    return -1;
+    return holdings.stream()
+            .filter(holding -> nonNull(holding.getCompanies()) && holding.getCompanies().size() > 0)
+            .count();
   }
 
   /**
    * Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy.
    */
   List<String> getHoldingNames() {
-    return null;
+
+    List<String> holdingsNames= new ArrayList<>();
+    for (Holding holding: holdings) {
+      holdingsNames.add(holding.getName().toLowerCase());
+    }
+    return holdingsNames;
+
   }
 
   /**
    * Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy. Napisz to za pomocą strumieni.
    */
   List<String> getHoldingNamesAsStream() {
-    return null;
+    return holdings.stream()
+            .map(holding -> holding.getName().toLowerCase())
+            .collect(Collectors.toList());
   }
 
   /**
-   * Zwraca nazwy wszystkich holdingów sklejone w jeden string i posortowane. String ma postać: (Coca-Cola, Nestle, Pepsico)
+   * Zwraca nazwy wszystkich holdingów posortowane i sklejone w jeden string. String ma postać: (Coca-Cola, Nestle, Pepsico)
    */
   String getHoldingNamesAsString() {
-    return null;
+
+    StringBuilder namesAsString = new StringBuilder();
+    List<String> names = new ArrayList<>();
+
+    for (Holding holding:  holdings) {
+      names.add(holding.getName());
+    }
+    Collections.sort(names);
+
+    namesAsString.append('(');
+    for (String name:  names) {
+      namesAsString.append(name);
+      namesAsString.append(", ");
+    }
+    namesAsString.deleteCharAt(namesAsString.toString().length()-1);
+    namesAsString.deleteCharAt(namesAsString.toString().length()-1);
+    namesAsString.append(')');
+
+    return namesAsString.toString();
   }
 
   /**
    * Zwraca nazwy wszystkich holdingów sklejone w jeden string i posortowane. String ma postać: (Coca-Cola, Nestle, Pepsico). Napisz to za pomocą strumieni.
    */
   String getHoldingNamesAsStringAsStream() {
-    return null;
+    return holdings.stream()
+            .map(holding -> holding.getName())
+            .sorted()
+            .collect(Collectors.joining(", ", "(", ")"));
   }
 
   /**
    * Zwraca liczbę firm we wszystkich holdingach.
    */
   long getCompaniesAmount() {
-    return -1;
+
+
+
   }
 
   /**
