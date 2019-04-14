@@ -373,7 +373,10 @@ Set<String> allCurrencies = new TreeSet<>();
    * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Ustaw precyzje na 3 miejsca po przecinku.
    */
   BigDecimal getAccountAmountInPLN(final Account account) {
-    return null;
+
+    return account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate));
+
+
   }
 
 
@@ -381,42 +384,82 @@ Set<String> allCurrencies = new TreeSet<>();
    * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Napisz to za pomocą strumieni.
    */
   BigDecimal getAccountAmountInPLNAsStream(final Account account) {
-    return null;
+    return Stream.of(account)
+            .map(account1 -> account1.getAmount().multiply(BigDecimal.valueOf(account1.getCurrency().rate)))
+            .reduce(new BigDecimal("0"), BigDecimal::add).setScale(3, BigDecimal.ROUND_HALF_DOWN);
   }
 
   /**
    * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją.
    */
   BigDecimal getTotalCashInPLN(final List<Account> accounts) {
-    return null;
+    BigDecimal totalCashInPLN = new BigDecimal("0");
+
+    for (Account account:accounts){
+      totalCashInPLN = totalCashInPLN.add(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)));
+    }
+    return totalCashInPLN;
   }
 
   /**
    * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją. Napisz to za pomocą strumieni.
    */
   BigDecimal getTotalCashInPLNAsStream(final List<Account> accounts) {
-    return null;
+    return accounts.stream()
+            .map(accounts1 -> accounts1.getAmount().multiply(BigDecimal.valueOf(accounts1.getCurrency().rate)))
+            .reduce(new BigDecimal("0"), BigDecimal::add);
   }
 
   /**
    * Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek.
    */
   Set<String> getUsersForPredicate(final Predicate<User> userPredicate) {
-    return null;
+
+    Set<String> users = new HashSet<>();
+    for (Holding holding  :holdings){
+      for (Company company  :holding.getCompanies()){
+        for (User user: company.getUsers()){
+          if(userPredicate.test(user)){
+            users.add(user.getFirstName());
+          }
+        }
+      }
+    }
+    return users;
   }
 
   /**
    * Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek. Napisz to za pomocą strumieni.
    */
   Set<String> getUsersForPredicateAsStream(final Predicate<User> userPredicate) {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies()
+                    .stream()
+                    .flatMap(company -> company.getUsers()
+                            .stream()
+                            .filter(user -> userPredicate.test(user))
+                            .map(user -> user.getFirstName())))
+            .collect(Collectors.toSet());
   }
 
   /**
    * Metoda filtruje użytkowników starszych niż podany jako parametr wiek, wyświetla ich na konsoli, odrzuca mężczyzn i zwraca ich imiona w formie listy.
    */
   List<String> getOldWoman(final int age) {
-    return null;
+    List<String> users = new ArrayList<>();
+    for (Holding holding  :holdings){
+      for (Company company  :holding.getCompanies()){
+        for (User user: company.getUsers()){
+          if(user.getAge() > age){
+            System.out.println(user.getFirstName());
+            if(user.getSex() == Sex.WOMAN){
+            users.add(user.getFirstName());
+            }
+          }
+        }
+      }
+    }
+    return users;
   }
 
   /**
@@ -424,42 +467,101 @@ Set<String> allCurrencies = new TreeSet<>();
    * to za pomocą strumieni.
    */
   List<String> getOldWomanAsStream(final int age) {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies()
+            .stream()
+                    .flatMap(company -> company.getUsers()
+                            .stream()
+                            .filter(user -> (user.getAge() > age && user.getSex() == Sex.WOMAN))
+                            .map(user -> user.getFirstName())))
+            .collect(Collectors.toList());
   }
 
   /**
    * Dla każdej firmy uruchamia przekazaną metodę.
    */
-  void executeForEachCompany(final Consumer<Company> consumer) {
-    throw new IllegalArgumentException();
+  void executeForEachCompany(final Consumer<Company> consumer) throws IllegalArgumentException {
+
+    holdings.stream()
+            .flatMap(holding -> holding.getCompanies().stream())
+            .forEach(consumer);
   }
 
   /**
    * Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach.
    */
   Optional<User> getRichestWoman() {
-    return null;
+//  BigDecimal currentMax = new BigDecimal("0");
+//
+//  Optional<User> woman = null;
+//          String richestWoman = null;
+//
+//  for (Holding holding: holdings){
+//    for (Company company: holding.getCompanies()){
+//      for(User user: company.getUsers()){
+//
+//        BigDecimal amount = new BigDecimal("0");
+//
+//        for (Account account: user.getAccounts()){
+//          amount = amount.add(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)));
+//        }
+//      if(currentMax.compareTo(amount) == -1){
+//      currentMax = amount;
+//      richestWoman = user.getFirstName() + " "   +  user.getLastName();}
+//      }
+//    }
+//  }
+
+
+return null;
   }
 
   /**
    * Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach. Napisz to za pomocą strumieni.
    */
   Optional<User> getRichestWomanAsStream() {
-    return null;
-  }
+
+    return holdings.stream().flatMap(holding -> holding.getCompanies()
+            .stream()
+            .flatMap(company -> company.getUsers()
+                    .stream()
+                    .filter(user -> user.getSex() == Sex.WOMAN)))
+            .flatMap(user -> user.getAccounts()
+                    .stream()
+                    .reduce((account, account2) -> account.getAmount().add(account2.getAmount())));
+
+
+
+      }
 
   /**
    * Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia.
    */
   Set<String> getFirstNCompany(final int n) {
-    return null;
+
+    Set<String> companies = new HashSet<>();
+
+    for (Holding holding: holdings){
+     for (Company company: holding.getCompanies()){
+       if(companies.size() != n){
+         companies.add(company.getName());
+       }
+     }
+    }
+
+    return companies;
   }
 
   /**
    * Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia. Napisz to za pomocą strumieni.
    */
   Set<String> getFirstNCompanyAsStream(final int n) {
-    return null;
+    return holdings.stream()
+            .flatMap(holding -> holding.getCompanies()
+                    .stream()
+                    .map(company -> company.getName()))
+            .limit(n)
+            .collect(Collectors.toSet());
   }
 
   /**
@@ -467,7 +569,21 @@ Set<String> allCurrencies = new TreeSet<>();
    * rachunku metoda ma wyrzucić wyjątek IllegalStateException. Pierwsza instrukcja metody to return.
    */
   AccountType getMostPopularAccountType() {
-    return null;
+   // return AccountType.ROR1;
+
+/*    Set<AccountType> types  = new HashSet<>();
+    for(Holding holding: holdings){
+      for(Company company: holding.getCompanies()){
+        for (User user:company.getUsers()){
+          for(Account account : user.getAccounts()){
+          types.add(account.getType());
+          }
+        }
+      }
+    }
+
+
+    }*/
   }
 
   /**
