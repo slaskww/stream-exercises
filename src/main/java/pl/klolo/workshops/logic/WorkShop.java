@@ -583,16 +583,17 @@ return null;
    */
   AccountType getMostPopularAccountTypeAsStream() {
 
-
+            Map<AccountType, Long> accounts =
             getAccoutStream()
             .map(account -> account.getType())
-            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).;
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+           return accounts.entrySet().stream().max((s, f) -> f.getValue().intValue()).get().getKey();
 //            accounts.forEach((accountType, aLong) -> {
 //              System.out.printf("%s : %d%n", accountType.toString(), aLong);
 //            });
 
-    return
+
   }
 
   /**
