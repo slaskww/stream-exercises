@@ -553,21 +553,27 @@ return null;
    * rachunku metoda ma wyrzucić wyjątek IllegalStateException. Pierwsza instrukcja metody to return.
    */
   AccountType getMostPopularAccountType() {
-   // return AccountType.ROR1;
 
-/*    Set<AccountType> types  = new HashSet<>();
-    for(Holding holding: holdings){
-      for(Company company: holding.getCompanies()){
-        for (User user:company.getUsers()){
-          for(Account account : user.getAccounts()){
-          types.add(account.getType());
+    Map<AccountType, Long> accountTypeCounter = new TreeMap<>();
+    accountTypeCounter.put(AccountType.ROR2, 0L);
+    accountTypeCounter.put(AccountType.RO1, 0L);
+    accountTypeCounter.put(AccountType.ROR1, 0L);
+    accountTypeCounter.put(AccountType.RO2, 0L);
+    accountTypeCounter.put(AccountType.LO1, 0L);
+    accountTypeCounter.put(AccountType.LO2, 0L);
+
+
+    for (Holding holding: holdings){
+      for (Company company: holding.getCompanies()){
+        for (User user: company.getUsers()){
+          for (Account account: user.getAccounts()){
+           accountTypeCounter.computeIfPresent(account.getType(), (k, v) -> v + 1 );
           }
         }
       }
+
+     return  ((TreeMap<AccountType, Long>) accountTypeCounter).firstEntry().getKey();
     }
-
-
-    }*/
 return null;
   }
 
@@ -576,7 +582,17 @@ return null;
    * rachunku metoda ma wyrzucić wyjątek IllegalStateException. Pierwsza instrukcja metody to return. Napisz to za pomocą strumieni.
    */
   AccountType getMostPopularAccountTypeAsStream() {
-    return null;
+
+
+            getAccoutStream()
+            .map(account -> account.getType())
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).;
+
+//            accounts.forEach((accountType, aLong) -> {
+//              System.out.printf("%s : %d%n", accountType.toString(), aLong);
+//            });
+
+    return
   }
 
   /**
@@ -851,7 +867,12 @@ return null;
    *75 Tworzy strumień rachunków.
    */
   private Stream<Account> getAccoutStream() {
-    return null;
+    return holdings.stream().flatMap(holding -> holding.getCompanies()
+            .stream()
+            .flatMap(company -> company.getUsers()
+                    .stream()
+                    .flatMap(user -> user.getAccounts()
+                            .stream())));
   }
 
   /**
