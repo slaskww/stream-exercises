@@ -20,4 +20,8 @@ public class User {
     private final List<Account> accounts;
 
     private final List<Permit> permits;
+
+    public String  getName(){
+        return firstName + " " + lastName;
+    }
 }

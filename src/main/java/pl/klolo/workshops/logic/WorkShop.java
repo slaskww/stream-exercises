@@ -31,7 +31,7 @@ class WorkShop {
   }
 
   /**
-   * Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma.
+   *1 Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma.
    */
   long getHoldingsWhereAreCompanies() {
      int numberOfHolldings = 0;
@@ -44,7 +44,7 @@ class WorkShop {
   }
 
   /**
-   * Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma. Napisz to za pomocą strumieni.
+   *2 Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma. Napisz to za pomocą strumieni.
    */
   long getHoldingsWhereAreCompaniesAsStream() {
     return holdings.stream()
@@ -53,7 +53,7 @@ class WorkShop {
   }
 
   /**
-   * Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy.
+   *3 Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy.
    */
   List<String> getHoldingNames() {
 
@@ -66,7 +66,7 @@ class WorkShop {
   }
 
   /**
-   * Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy. Napisz to za pomocą strumieni.
+   *4 Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy. Napisz to za pomocą strumieni.
    */
   List<String> getHoldingNamesAsStream() {
     return holdings.stream()
@@ -75,7 +75,7 @@ class WorkShop {
   }
 
   /**
-   * Zwraca nazwy wszystkich holdingów posortowane i sklejone w jeden string. String ma postać: (Coca-Cola, Nestle, Pepsico)
+   *5 Zwraca nazwy wszystkich holdingów posortowane i sklejone w jeden string. String ma postać: (Coca-Cola, Nestle, Pepsico)
    */
   String getHoldingNamesAsString() {
 
@@ -100,7 +100,7 @@ class WorkShop {
   }
 
   /**
-   * Zwraca nazwy wszystkich holdingów sklejone w jeden string i posortowane. String ma postać: (Coca-Cola, Nestle, Pepsico). Napisz to za pomocą strumieni.
+   *6 Zwraca nazwy wszystkich holdingów sklejone w jeden string i posortowane. String ma postać: (Coca-Cola, Nestle, Pepsico). Napisz to za pomocą strumieni.
    */
   String getHoldingNamesAsStringAsStream() {
     return holdings.stream()
@@ -110,7 +110,7 @@ class WorkShop {
   }
 
   /**
-   * Zwraca liczbę firm we wszystkich holdingach.
+   *7 Zwraca liczbę firm we wszystkich holdingach.
    */
   long getCompaniesAmount() {
 
@@ -124,7 +124,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca liczbę firm we wszystkich holdingach. Napisz to za pomocą strumieni.
+   *8 Zwraca liczbę firm we wszystkich holdingach. Napisz to za pomocą strumieni.
    */
   long getCompaniesAmountAsStream() {
 
@@ -135,7 +135,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca liczbę wszystkich pracowników we wszystkich firmach.
+   *9 Zwraca liczbę wszystkich pracowników we wszystkich firmach.
    */
   long getAllUserAmount() {
 
@@ -152,7 +152,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca liczbę wszystkich pracowników we wszystkich firmach. Napisz to za pomocą strumieni.
+   *10 Zwraca liczbę wszystkich pracowników we wszystkich firmach. Napisz to za pomocą strumieni.
    */
   long getAllUserAmountAsStream() {
     return holdings.stream()
@@ -162,7 +162,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę wszystkich nazw firm w formie listy.
+   *11 Zwraca listę wszystkich nazw firm w formie listy.
    */
   List<String> getAllCompaniesNames() {
 
@@ -177,7 +177,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę wszystkich nazw firm w formie listy. Tworzenie strumienia firm umieść w osobnej metodzie którą później będziesz wykorzystywać. Napisz to za
+   *12 Zwraca listę wszystkich nazw firm w formie listy. Tworzenie strumienia firm umieść w osobnej metodzie którą później będziesz wykorzystywać. Napisz to za
    * pomocą strumieni.
    */
   List<String> getAllCompaniesNamesAsStream() {
@@ -187,7 +187,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList.
+   *13 Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList.
    */
   LinkedList<String> getAllCompaniesNamesAsLinkedList() {
     LinkedList<String> companiesNames = new LinkedList<>();
@@ -201,7 +201,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList. Obiektów nie przepisujemy po zakończeniu działania strumienia. Napisz to za
+   *14 Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList. Obiektów nie przepisujemy po zakończeniu działania strumienia. Napisz to za
    * pomocą strumieni.
    */
   LinkedList<String> getAllCompaniesNamesAsLinkedListAsStream() {
@@ -211,7 +211,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+"
+   *15 Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+"
    */
   String getAllCompaniesNamesAsString() {
 
@@ -228,7 +228,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+" Napisz to za pomocą strumieni.
+   *16 Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+" Napisz to za pomocą strumieni.
    */
   String getAllCompaniesNamesAsStringAsStream() {
     return holdings.stream()
@@ -240,7 +240,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+". Używamy collect i StringBuilder. Napisz to za pomocą
+   *17 Zwraca listę firm jako string gdzie poszczególne firmy są oddzielone od siebie znakiem "+". Używamy collect i StringBuilder. Napisz to za pomocą
    * strumieni.
    * <p>
    * UWAGA: Zadanie z gwiazdką. Nie używamy zmiennych.
@@ -255,7 +255,7 @@ long numberOfCompanies = 0;
 
   }
   /**
-   * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
+   *18 Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
    */
   long getAllUserAccountsAmount() {
 
@@ -272,7 +272,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach. Napisz to za pomocą strumieni.
+   *19 Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach. Napisz to za pomocą strumieni.
    */
   long getAllUserAccountsAmountAsStream() {
     return holdings.stream()
@@ -281,7 +281,7 @@ long numberOfCompanies = 0;
   }
 
   /**
-   * Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane.
+   *20 Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane.
    */
   String getAllCurrencies() {
 
@@ -300,7 +300,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane. Napisz to za pomocą strumieni.
+   *21 Zwraca listę wszystkich walut w jakich są rachunki jako string, w którym wartości występują bez powtórzeń i są posortowane. Napisz to za pomocą strumieni.
    */
   String getAllCurrenciesAsStream() {
     return holdings.stream()
@@ -319,7 +319,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Metoda zwraca analogiczne dane jak getAllCurrencies, jednak na utworzonym zbiorze nie uruchamiaj metody stream, tylko skorzystaj z  Stream.generate.
+   *22 Metoda zwraca analogiczne dane jak getAllCurrencies, jednak na utworzonym zbiorze nie uruchamiaj metody stream, tylko skorzystaj z  Stream.generate.
    * Wspólny kod wynieś do osobnej metody.
    *
    * @see #getAllCurrencies()
@@ -330,7 +330,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Zwraca liczbę kobiet we wszystkich firmach.
+   *23 Zwraca liczbę kobiet we wszystkich firmach.
    */
   long getWomanAmount() {
     long  womenAmount =  0;
@@ -348,7 +348,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Zwraca liczbę kobiet we wszystkich firmach. Powtarzający się fragment kodu tworzący strumień uzytkowników umieść w osobnej metodzie. Predicate określający
+   *24 Zwraca liczbę kobiet we wszystkich firmach. Powtarzający się fragment kodu tworzący strumień uzytkowników umieść w osobnej metodzie. Predicate określający
    * czy mamy doczynienia z kobietą Inech będzie polem statycznym w klasie. Napisz to za pomocą strumieni.
    */
   long getWomanAmountAsStream() {
@@ -370,7 +370,7 @@ Set<String> allCurrencies = new TreeSet<>();
 //  }
 
   /**
-   * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Ustaw precyzje na 3 miejsca po przecinku.
+   *25 Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Ustaw precyzje na 3 miejsca po przecinku.
    */
   BigDecimal getAccountAmountInPLN(final Account account) {
 
@@ -381,7 +381,7 @@ Set<String> allCurrencies = new TreeSet<>();
 
 
   /**
-   * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Napisz to za pomocą strumieni.
+   *26 Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency. Napisz to za pomocą strumieni.
    */
   BigDecimal getAccountAmountInPLNAsStream(final Account account) {
     return Stream.of(account)
@@ -390,7 +390,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją.
+   *27 Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją.
    */
   BigDecimal getTotalCashInPLN(final List<Account> accounts) {
     BigDecimal totalCashInPLN = new BigDecimal("0");
@@ -402,7 +402,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją. Napisz to za pomocą strumieni.
+   *28 Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency  i sumuje ją. Napisz to za pomocą strumieni.
    */
   BigDecimal getTotalCashInPLNAsStream(final List<Account> accounts) {
     return accounts.stream()
@@ -411,7 +411,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek.
+   *29 Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek.
    */
   Set<String> getUsersForPredicate(final Predicate<User> userPredicate) {
 
@@ -429,7 +429,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek. Napisz to za pomocą strumieni.
+   *30 Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek. Napisz to za pomocą strumieni.
    */
   Set<String> getUsersForPredicateAsStream(final Predicate<User> userPredicate) {
     return holdings.stream()
@@ -443,7 +443,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Metoda filtruje użytkowników starszych niż podany jako parametr wiek, wyświetla ich na konsoli, odrzuca mężczyzn i zwraca ich imiona w formie listy.
+   *31 Metoda filtruje użytkowników starszych niż podany jako parametr wiek, wyświetla ich na konsoli, odrzuca mężczyzn i zwraca ich imiona w formie listy.
    */
   List<String> getOldWoman(final int age) {
     List<String> users = new ArrayList<>();
@@ -463,7 +463,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Metoda filtruje użytkowników starszych niż podany jako parametr wiek, wyświetla ich na konsoli, odrzuca mężczyzn i zwraca ich imiona w formie listy. Napisz
+   *32 Metoda filtruje użytkowników starszych niż podany jako parametr wiek, wyświetla ich na konsoli, odrzuca mężczyzn i zwraca ich imiona w formie listy. Napisz
    * to za pomocą strumieni.
    */
   List<String> getOldWomanAsStream(final int age) {
@@ -478,7 +478,7 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Dla każdej firmy uruchamia przekazaną metodę.
+   *33 Dla każdej firmy uruchamia przekazaną metodę.
    */
   void executeForEachCompany(final Consumer<Company> consumer) throws IllegalArgumentException {
 
@@ -488,54 +488,38 @@ Set<String> allCurrencies = new TreeSet<>();
   }
 
   /**
-   * Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach.
+   *34 Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach.
    */
   Optional<User> getRichestWoman() {
-//  BigDecimal currentMax = new BigDecimal("0");
-//
-//  Optional<User> woman = null;
-//          String richestWoman = null;
-//
-//  for (Holding holding: holdings){
-//    for (Company company: holding.getCompanies()){
-//      for(User user: company.getUsers()){
-//
-//        BigDecimal amount = new BigDecimal("0");
-//
-//        for (Account account: user.getAccounts()){
-//          amount = amount.add(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)));
-//        }
-//      if(currentMax.compareTo(amount) == -1){
-//      currentMax = amount;
-//      richestWoman = user.getFirstName() + " "   +  user.getLastName();}
-//      }
-//    }
-//  }
+
 
 
 return null;
   }
 
   /**
-   * Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach. Napisz to za pomocą strumieni.
+   *35 Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach. Napisz to za pomocą strumieni.
    */
   Optional<User> getRichestWomanAsStream() {
 
-    return holdings.stream().flatMap(holding -> holding.getCompanies()
+
+
+     Optional<User> richestWoman =  holdings.stream().flatMap(holding -> holding.getCompanies()
             .stream()
             .flatMap(company -> company.getUsers()
                     .stream()
                     .filter(user -> user.getSex() == Sex.WOMAN)))
-            .flatMap(user -> user.getAccounts()
-                    .stream()
-                    .reduce((account, account2) -> account.getAmount().add(account2.getAmount())));
+           .max(Comparator.comparing(user -> user.getAccounts()
+                   .stream()
+                   .map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)))
+                   .reduce(BigDecimal::add)
+                   .get()));
 
-
-
+    return richestWoman;
       }
 
   /**
-   * Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia.
+   *36 Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia.
    */
   Set<String> getFirstNCompany(final int n) {
 
@@ -553,7 +537,7 @@ return null;
   }
 
   /**
-   * Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia. Napisz to za pomocą strumieni.
+   *37 Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia. Napisz to za pomocą strumieni.
    */
   Set<String> getFirstNCompanyAsStream(final int n) {
     return holdings.stream()
@@ -565,7 +549,7 @@ return null;
   }
 
   /**
-   * Metoda zwraca jaki rodzaj rachunku jest najpopularniejszy. Stwórz pomocniczą metdę getAccountStream. Jeżeli nie udało się znaleźć najpopularnijeszego
+   *38 Metoda zwraca jaki rodzaj rachunku jest najpopularniejszy. Stwórz pomocniczą metdę getAccountStream. Jeżeli nie udało się znaleźć najpopularnijeszego
    * rachunku metoda ma wyrzucić wyjątek IllegalStateException. Pierwsza instrukcja metody to return.
    */
   AccountType getMostPopularAccountType() {
@@ -584,10 +568,11 @@ return null;
 
 
     }*/
+return null;
   }
 
   /**
-   * Metoda zwraca jaki rodzaj rachunku jest najpopularniejszy. Stwórz pomocniczą metdę getAccountStream. Jeżeli nie udało się znaleźć najpopularnijeszego
+   *39 Metoda zwraca jaki rodzaj rachunku jest najpopularniejszy. Stwórz pomocniczą metdę getAccountStream. Jeżeli nie udało się znaleźć najpopularnijeszego
    * rachunku metoda ma wyrzucić wyjątek IllegalStateException. Pierwsza instrukcja metody to return. Napisz to za pomocą strumieni.
    */
   AccountType getMostPopularAccountTypeAsStream() {
@@ -595,14 +580,14 @@ return null;
   }
 
   /**
-   * Zwraca pierwszego z brzegu użytkownika dla podanego warunku. W przypadku kiedy nie znajdzie użytkownika wyrzuca wyjątek IllegalArgumentException.
+   *40 Zwraca pierwszego z brzegu użytkownika dla podanego warunku. W przypadku kiedy nie znajdzie użytkownika wyrzuca wyjątek IllegalArgumentException.
    */
   User getUser(final Predicate<User> predicate) {
     return null;
   }
 
   /**
-   * Zwraca pierwszego z brzegu użytkownika dla podanego warunku. W przypadku kiedy nie znajdzie użytkownika wyrzuca wyjątek IllegalArgumentException. Napisz to
+   *41 Zwraca pierwszego z brzegu użytkownika dla podanego warunku. W przypadku kiedy nie znajdzie użytkownika wyrzuca wyjątek IllegalArgumentException. Napisz to
    * za pomocą strumieni.
    */
   User getUserAsStream(final Predicate<User> predicate) {
@@ -610,21 +595,21 @@ return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników.
+   *42 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników.
    */
   Map<String, List<User>> getUserPerCompany() {
     return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników. Napisz to za pomocą strumieni.
+   *43 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników. Napisz to za pomocą strumieni.
    */
   Map<String, List<User>> getUserPerCompanyAsStream() {
     return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako string składający się z imienia i nazwiska. Podpowiedź:
+   *44 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako string składający się z imienia i nazwiska. Podpowiedź:
    * Możesz skorzystać z metody entrySet.
    */
   Map<String, List<String>> getUserPerCompanyAsString() {
@@ -632,7 +617,7 @@ return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako string składający się z imienia i nazwiska. Podpowiedź:
+   *45 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako string składający się z imienia i nazwiska. Podpowiedź:
    * Możesz skorzystać z metody entrySet. Napisz to za pomocą strumieni.
    */
   Map<String, List<String>> getUserPerCompanyAsStringAsStream() {
@@ -640,7 +625,7 @@ return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako obiekty typu T, tworzonych za pomocą przekazanej
+   *46 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako obiekty typu T, tworzonych za pomocą przekazanej
    * funkcji.
    */
   <T> Map<String, List<T>> getUserPerCompany(final Function<User, T> converter) {
@@ -648,7 +633,7 @@ return null;
   }
 
   /**
-   * Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako obiekty typu T, tworzonych za pomocą przekazanej funkcji.
+   *47 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników przechowywanych jako obiekty typu T, tworzonych za pomocą przekazanej funkcji.
    * Napisz to za pomocą strumieni.
    */
   <T> Map<String, List<T>> getUserPerCompanyAsStream(final Function<User, T> converter) {
@@ -656,7 +641,7 @@ return null;
   }
 
   /**
-   * Zwraca mapę gdzie kluczem jest flaga mówiąca o tym czy mamy do czynienia z mężczyzną, czy z kobietą. Osoby "innej" płci mają zostać zignorowane. Wartością
+   *48 Zwraca mapę gdzie kluczem jest flaga mówiąca o tym czy mamy do czynienia z mężczyzną, czy z kobietą. Osoby "innej" płci mają zostać zignorowane. Wartością
    * jest natomiast zbiór nazwisk tych osób.
    */
   Map<Boolean, Set<String>> getUserBySex() {
@@ -664,7 +649,7 @@ return null;
   }
 
   /**
-   * Zwraca mapę gdzie kluczem jest flaga mówiąca o tym czy mamy do czynienia z mężczyzną, czy z kobietą. Osoby "innej" płci mają zostać zignorowane. Wartością
+   *49 Zwraca mapę gdzie kluczem jest flaga mówiąca o tym czy mamy do czynienia z mężczyzną, czy z kobietą. Osoby "innej" płci mają zostać zignorowane. Wartością
    * jest natomiast zbiór nazwisk tych osób. Napisz to za pomocą strumieni.
    */
   Map<Boolean, Set<String>> getUserBySexAsStream() {
@@ -672,63 +657,63 @@ return null;
   }
 
   /**
-   * Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek.
+   *50 Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek.
    */
   Map<String, Account> createAccountsMap() {
     return null;
   }
 
   /**
-   * Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek. Napisz to za pomocą strumieni.
+   *51 Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek. Napisz to za pomocą strumieni.
    */
   Map<String, Account> createAccountsMapAsStream() {
     return null;
   }
 
   /**
-   * Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń.
+   *52 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń.
    */
   String getUserNames() {
     return null;
   }
 
   /**
-   * Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń. Napisz to za pomocą strumieni.
+   *53 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń. Napisz to za pomocą strumieni.
    */
   String getUserNamesAsStream() {
     return null;
   }
 
   /**
-   * zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10.
+   *54 zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10.
    */
   Set<User> getUsers() {
     return null;
   }
 
   /**
-   * zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10. Napisz to za pomocą strumieni.
+   *55 zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10. Napisz to za pomocą strumieni.
    */
   Set<User> getUsersAsStream() {
     return null;
   }
 
   /**
-   * Zwraca użytkownika, który spełnia podany warunek.
+   *56 Zwraca użytkownika, który spełnia podany warunek.
    */
   Optional<User> findUser(final Predicate<User> userPredicate) {
     return null;
   }
 
   /**
-   * Zwraca użytkownika, który spełnia podany warunek. Napisz to za pomocą strumieni.
+   *57 Zwraca użytkownika, który spełnia podany warunek. Napisz to za pomocą strumieni.
    */
   Optional<User> findUserAsStream(final Predicate<User> userPredicate) {
     return null;
   }
 
   /**
-   * Dla podanego użytkownika zwraca informacje o tym ile ma lat w formie: IMIE NAZWISKO ma lat X. Jeżeli użytkownik nie istnieje to zwraca text: Brak
+   *58 Dla podanego użytkownika zwraca informacje o tym ile ma lat w formie: IMIE NAZWISKO ma lat X. Jeżeli użytkownik nie istnieje to zwraca text: Brak
    * użytkownika.
    * <p>
    * Uwaga: W prawdziwym kodzie nie przekazuj Optionali jako parametrów. Napisz to za pomocą strumieni.
@@ -738,7 +723,7 @@ return null;
   }
 
   /**
-   * Metoda wypisuje na ekranie wszystkich użytkowników (imie, nazwisko) posortowanych od z do a. Zosia Psikuta, Zenon Kucowski, Zenek Jawowy ... Alfred
+   *59 Metoda wypisuje na ekranie wszystkich użytkowników (imie, nazwisko) posortowanych od z do a. Zosia Psikuta, Zenon Kucowski, Zenek Jawowy ... Alfred
    * Pasibrzuch, Adam Wojcik
    */
   void showAllUser() {
@@ -746,7 +731,7 @@ return null;
   }
 
   /**
-   * Metoda wypisuje na ekranie wszystkich użytkowników (imie, nazwisko) posortowanych od z do a. Zosia Psikuta, Zenon Kucowski, Zenek Jawowy ... Alfred
+   *60 Metoda wypisuje na ekranie wszystkich użytkowników (imie, nazwisko) posortowanych od z do a. Zosia Psikuta, Zenon Kucowski, Zenek Jawowy ... Alfred
    * Pasibrzuch, Adam Wojcik. Napisz to za pomocą strumieni.
    */
   void showAllUserAsStream() {
@@ -754,14 +739,14 @@ return null;
   }
 
   /**
-   * Zwraca mapę, gdzie kluczem jest typ rachunku a wartością kwota wszystkich środków na rachunkach tego typu przeliczona na złotówki.
+   *61 Zwraca mapę, gdzie kluczem jest typ rachunku a wartością kwota wszystkich środków na rachunkach tego typu przeliczona na złotówki.
    */
   Map<AccountType, BigDecimal> getMoneyOnAccounts() {
     return null;
   }
 
   /**
-   * Zwraca mapę, gdzie kluczem jest typ rachunku a wartością kwota wszystkich środków na rachunkach tego typu przeliczona na złotówki. Napisz to za pomocą
+   *62 Zwraca mapę, gdzie kluczem jest typ rachunku a wartością kwota wszystkich środków na rachunkach tego typu przeliczona na złotówki. Napisz to za pomocą
    * strumieni. Ustaw precyzje na 0.
    */
   Map<AccountType, BigDecimal> getMoneyOnAccountsAsStream() {
@@ -769,21 +754,21 @@ return null;
   }
 
   /**
-   * Zwraca sumę kwadratów wieków wszystkich użytkowników.
+   *63 Zwraca sumę kwadratów wieków wszystkich użytkowników.
    */
   int getAgeSquaresSum() {
     return -1;
   }
 
   /**
-   * Zwraca sumę kwadratów wieków wszystkich użytkowników. Napisz to za pomocą strumieni.
+   *64 Zwraca sumę kwadratów wieków wszystkich użytkowników. Napisz to za pomocą strumieni.
    */
   int getAgeSquaresSumAsStream() {
     return -1;
   }
 
   /**
-   * Metoda zwraca N losowych użytkowników (liczba jest stała). Skorzystaj z metody generate. Użytkownicy nie mogą się powtarzać, wszystkie zmienną muszą być
+   *65 Metoda zwraca N losowych użytkowników (liczba jest stała). Skorzystaj z metody generate. Użytkownicy nie mogą się powtarzać, wszystkie zmienną muszą być
    * final. Jeżeli podano liczbę większą niż liczba użytkowników należy wyrzucić wyjątek (bez zmiany sygnatury metody).
    */
   List<User> getRandomUsers(final int n) {
@@ -791,7 +776,7 @@ return null;
   }
 
   /**
-   * Metoda zwraca N losowych użytkowników (liczba jest stała). Skorzystaj z metody generate. Użytkownicy nie mogą się powtarzać, wszystkie zmienną muszą być
+   *66 Metoda zwraca N losowych użytkowników (liczba jest stała). Skorzystaj z metody generate. Użytkownicy nie mogą się powtarzać, wszystkie zmienną muszą być
    * final. Jeżeli podano liczbę większą niż liczba użytkowników należy wyrzucić wyjątek (bez zmiany sygnatury metody). Napisz to za pomocą strumieni.
    */
   List<User> getRandomUsersAsStream(final int n) {
@@ -799,7 +784,7 @@ return null;
   }
 
   /**
-   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
+   *67 Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
    * na rachunku danego typu przeliczona na złotkówki.
    */
   Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMap() {
@@ -807,7 +792,7 @@ return null;
   }
 
   /**
-   * Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
+   *68 Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
    * na rachunku danego typu przeliczona na złotkówki.  Napisz to za pomocą strumieni.
    */
   Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMapAsStream() {
@@ -815,7 +800,7 @@ return null;
   }
 
   /**
-   * Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
+   *69 Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
    * ilości środków na koncie w kolejności od największej do najmniejszej ich ilości liczonej w złotówkach.
    */
 
@@ -824,7 +809,7 @@ return null;
   }
 
   /**
-   * Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
+   *70 Podziel wszystkich użytkowników po ich upoważnieniach, przygotuj mapę która gdzie kluczem jest upoważnenie a wartością lista użytkowników, posortowana po
    * ilości środków na koncie w kolejności od największej do najmniejszej ich ilości liczonej w złotówkach. Napisz to za pomoca strumieni.
    */
 
@@ -833,7 +818,7 @@ return null;
   }
 
   /**
-   * Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
+   *71 Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
    * List<Users>
    */
   Map<Boolean, List<User>> divideUsersByPredicate(final Predicate<User> predicate) {
@@ -841,7 +826,7 @@ return null;
   }
 
   /**
-   * Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
+   *72 Podziel użytkowników na tych spełniających podany predykat i na tych niespełniających. Zwracanym typem powinna być mapa Boolean => spełnia/niespełnia,
    * List<Users>. Wykonaj zadanie za pomoca strumieni.
    */
   Map<Boolean, List<User>> divideUsersByPredicateAsStream(final Predicate<User> predicate) {
@@ -849,28 +834,28 @@ return null;
   }
 
   /**
-   * Zwraca strumień wszystkich firm.
+   *73 Zwraca strumień wszystkich firm.
    */
   private Stream<Company> getCompanyStream() {
     return null;
   }
 
   /**
-   * Zwraca zbiór walut w jakich są rachunki.
+   *74 Zwraca zbiór walut w jakich są rachunki.
    */
   private Set<Currency> getCurenciesSet() {
     return null;
   }
 
   /**
-   * Tworzy strumień rachunków.
+   *75 Tworzy strumień rachunków.
    */
   private Stream<Account> getAccoutStream() {
     return null;
   }
 
   /**
-   * Tworzy strumień użytkowników.
+   *76 Tworzy strumień użytkowników.
    */
   private Stream<User> getUserStream() {
     return null;
