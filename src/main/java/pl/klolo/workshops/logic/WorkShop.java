@@ -713,7 +713,23 @@ class WorkShop {
      * funkcji.
      */
     <T> Map<String, List<T>> getUserPerCompany(final Function<User, T> converter) {
-        return null;
+
+        Map<String, List<T>> usersPerCompany = new HashMap<>();
+
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                ArrayList listOfNamesAfterConversion = new ArrayList();
+
+                for (User user : company.getUsers()) {
+                    listOfNamesAfterConversion.add(converter.apply(user));
+                }
+                usersPerCompany.put(company.getName(), listOfNamesAfterConversion);
+            }
+        }
+
+        return usersPerCompany;
+
     }
 
     /**
@@ -721,7 +737,14 @@ class WorkShop {
      * Napisz to za pomocą strumieni.
      */
     <T> Map<String, List<T>> getUserPerCompanyAsStream(final Function<User, T> converter) {
-        return null;
+        return holdings.stream()
+                .flatMap(holding -> holding
+                        .getCompanies()
+                        .stream())
+                .collect(Collectors.toMap(Company::getName, company -> company.getUsers()
+                        .stream()
+                        .map(user -> converter.apply(user))
+                        .collect(Collectors.toList())));
     }
 
     /**
