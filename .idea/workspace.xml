@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f591dd3-bb31-4844-a085-4431ea0c2beb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,76 +17,56 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="627" column="26" selection-start-line="627" selection-start-column="17" selection-end-line="627" selection-end-column="26" />
+            <state relative-caret-position="435">
+              <caret line="690" column="31" lean-forward="true" selection-start-line="690" selection-start-column="31" selection-end-line="690" selection-end-column="31" />
               <folding>
-                <element signature="e#22650#22651#0" expanded="true" />
-                <element signature="e#22677#22678#0" expanded="true" />
-                <element signature="e#22871#22872#0" expanded="true" />
-                <element signature="e#22898#22899#0" expanded="true" />
-                <element signature="e#23183#23184#0" expanded="true" />
-                <element signature="e#23210#23211#0" expanded="true" />
-                <element signature="e#23534#23535#0" expanded="true" />
-                <element signature="e#23561#23562#0" expanded="true" />
-                <element signature="e#23835#23836#0" expanded="true" />
-                <element signature="e#23862#23863#0" expanded="true" />
-                <element signature="e#24175#24176#0" expanded="true" />
-                <element signature="e#24202#24203#0" expanded="true" />
-                <element signature="e#24478#24479#0" expanded="true" />
-                <element signature="e#24505#24506#0" expanded="true" />
-                <element signature="e#24820#24821#0" expanded="true" />
-                <element signature="e#24847#24848#0" expanded="true" />
-                <element signature="e#25005#25006#0" expanded="true" />
-                <element signature="e#25032#25033#0" expanded="true" />
-                <element signature="e#25229#25230#0" expanded="true" />
-                <element signature="e#25256#25257#0" expanded="true" />
-                <element signature="e#25421#25422#0" expanded="true" />
-                <element signature="e#25448#25449#0" expanded="true" />
-                <element signature="e#25652#25653#0" expanded="true" />
-                <element signature="e#25679#25680#0" expanded="true" />
-                <element signature="e#25828#25829#0" expanded="true" />
-                <element signature="e#25855#25856#0" expanded="true" />
-                <element signature="e#26043#26044#0" expanded="true" />
-                <element signature="e#26070#26071#0" expanded="true" />
-                <element signature="e#26214#26215#0" expanded="true" />
-                <element signature="e#26241#26242#0" expanded="true" />
-                <element signature="e#26424#26425#0" expanded="true" />
-                <element signature="e#26451#26452#0" expanded="true" />
-                <element signature="e#26827#26828#0" expanded="true" />
-                <element signature="e#26854#26855#0" expanded="true" />
-                <element signature="e#27085#27086#0" expanded="true" />
-                <element signature="e#27158#27159#0" expanded="true" />
-                <element signature="e#27429#27430#0" expanded="true" />
-                <element signature="e#27502#27503#0" expanded="true" />
-                <element signature="e#27716#27717#0" expanded="true" />
-                <element signature="e#27743#27744#0" expanded="true" />
-                <element signature="e#28024#28025#0" expanded="true" />
-                <element signature="e#28051#28052#0" expanded="true" />
-                <element signature="e#28161#28162#0" expanded="true" />
-                <element signature="e#28186#28187#0" expanded="true" />
-                <element signature="e#28335#28336#0" expanded="true" />
-                <element signature="e#28360#28361#0" expanded="true" />
-                <element signature="e#28707#28708#0" expanded="true" />
-                <element signature="e#28734#28735#0" expanded="true" />
-                <element signature="e#29120#29121#0" expanded="true" />
-                <element signature="e#29147#29148#0" expanded="true" />
-                <element signature="e#29463#29464#0" expanded="true" />
-                <element signature="e#29490#29491#0" expanded="true" />
-                <element signature="e#29846#29847#0" expanded="true" />
-                <element signature="e#29873#29874#0" expanded="true" />
-                <element signature="e#30225#30226#0" expanded="true" />
-                <element signature="e#30252#30253#0" expanded="true" />
-                <element signature="e#30643#30644#0" expanded="true" />
-                <element signature="e#30670#30671#0" expanded="true" />
-                <element signature="e#30954#30955#0" expanded="true" />
-                <element signature="e#30981#30982#0" expanded="true" />
-                <element signature="e#31311#31312#0" expanded="true" />
-                <element signature="e#31338#31339#0" expanded="true" />
-                <element signature="e#31447#31448#0" expanded="true" />
-                <element signature="e#31474#31475#0" expanded="true" />
-                <element signature="e#31588#31589#0" expanded="true" />
-                <element signature="e#31615#31616#0" expanded="true" />
+                <element signature="e#25845#25846#0" expanded="true" />
+                <element signature="e#26185#26186#0" expanded="true" />
+                <element signature="e#26488#26489#0" expanded="true" />
+                <element signature="e#26830#26831#0" expanded="true" />
+                <element signature="e#27015#27016#0" expanded="true" />
+                <element signature="e#27239#27240#0" expanded="true" />
+                <element signature="e#27431#27432#0" expanded="true" />
+                <element signature="e#27662#27663#0" expanded="true" />
+                <element signature="e#27838#27839#0" expanded="true" />
+                <element signature="e#28053#28054#0" expanded="true" />
+                <element signature="e#28224#28225#0" expanded="true" />
+                <element signature="e#28434#28435#0" expanded="true" />
+                <element signature="e#28837#28838#0" expanded="true" />
+                <element signature="e#29141#29142#0" expanded="true" />
+                <element signature="e#29485#29486#0" expanded="true" />
+                <element signature="e#29726#29727#0" expanded="true" />
+                <element signature="e#30034#30035#0" expanded="true" />
+                <element signature="e#30169#30170#0" expanded="true" />
+                <element signature="e#30343#30344#0" expanded="true" />
+                <element signature="e#30717#30718#0" expanded="true" />
+                <element signature="e#31130#31131#0" expanded="true" />
+                <element signature="e#31473#31474#0" expanded="true" />
+                <element signature="e#31856#31857#0" expanded="true" />
+                <element signature="e#32235#32236#0" expanded="true" />
+                <element signature="e#32653#32654#0" expanded="true" />
+                <element signature="e#32964#32965#0" expanded="true" />
+                <element signature="e#33321#33322#0" expanded="true" />
+                <element signature="e#33730#33731#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Optional.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -94,17 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="593" lean-forward="true" selection-start-line="593" selection-end-line="593" />
+            <state relative-caret-position="213">
+              <caret line="617" column="82" selection-start-line="617" selection-start-column="57" selection-end-line="617" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/stream/Stream.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="934" column="16" selection-start-line="934" selection-start-column="16" selection-end-line="934" selection-end-column="16" />
+            <state relative-caret-position="85">
+              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -146,6 +126,8 @@
       <find>Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warun</find>
       <find>getUser</find>
       <find>getUserAsStream</find>
+      <find>getMostPopularAccountTyp</find>
+      <find>getUserPerCompanyAsString</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java" />
       </list>
     </option>
@@ -280,7 +263,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556192503983" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556215953380" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NI" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -299,8 +282,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkShopTest.shouldGetUserFoPassedPredicateThrowExceptionAsStream">
-    <configuration name="WorkShopTest.shouldFindROR1AsMostUsedAccountTypeAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream">
+    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -310,13 +293,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldFindROR1AsMostUsedAccountTypeAsStream" />
+      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldGetUserFoPassedPredicate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -326,13 +309,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldGetUserFoPassedPredicate" />
+      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListAsStream" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -342,13 +325,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldGetUserFoPassedPredicateAsStream" />
+      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListAsString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -358,13 +341,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldGetUserFoPassedPredicateThrowException" />
+      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListAsStringAsStream" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowExceptionAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -374,7 +357,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldGetUserFoPassedPredicateThrowExceptionAsStream" />
+      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListUsingPassedFunction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -382,11 +365,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WorkShopTest.shouldGetUserFoPassedPredicateThrowExceptionAsStream" />
-        <item itemvalue="JUnit.WorkShopTest.shouldGetUserFoPassedPredicateAsStream" />
-        <item itemvalue="JUnit.WorkShopTest.shouldGetUserFoPassedPredicateThrowException" />
-        <item itemvalue="JUnit.WorkShopTest.shouldGetUserFoPassedPredicate" />
-        <item itemvalue="JUnit.WorkShopTest.shouldFindROR1AsMostUsedAccountTypeAsStream" />
+        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" />
+        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsString" />
+        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserList" />
+        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" />
+        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsStream" />
       </list>
     </recent_temporary>
   </component>
@@ -404,35 +387,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicate - 2019.04.25 at 13h 13m 43s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicate" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserList - 2019.04.25 at 18h 30m 30s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateThrowException - 2019.04.25 at 13h 13m 51s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowException" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 19h 54m 46s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateThrowException - 2019.04.25 at 13h 14m 00s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowException" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 19h 56m 17s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicate - 2019.04.25 at 13h 14m 05s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicate" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsStringAsStream - 2019.04.25 at 19h 57m 44s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicate - 2019.04.25 at 13h 14m 09s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicate" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 20h 10m 53s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateThrowException - 2019.04.25 at 13h 26m 47s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowException" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListUsingPassedFunction - 2019.04.25 at 20h 10m 59s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateThrowException - 2019.04.25 at 13h 27m 16s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowException" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserList - 2019.04.25 at 20h 11m 07s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateAsStream - 2019.04.25 at 13h 33m 26s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateAsStream" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 20h 11m 47s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateThrowExceptionAsStream - 2019.04.25 at 13h 33m 37s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateThrowExceptionAsStream" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsStringAsStream - 2019.04.25 at 20h 11m 53s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WorkShopTest_shouldGetUserFoPassedPredicateAsStream - 2019.04.25 at 13h 33m 46s.xml">
-      <configuration name="WorkShopTest.shouldGetUserFoPassedPredicateAsStream" configurationId="JUnit" />
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsStringAsStream - 2019.04.25 at 20h 12m 38s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -457,7 +440,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="simpleUML" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59275055" visible="true" weight="0.22101842" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49733475" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -465,7 +448,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49871466" weight="0.32974428" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49626866" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026652" side_tool="true" weight="0.3997833" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49520257" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -622,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -741,10 +717,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
+    <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Optional.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="593" lean-forward="true" selection-start-line="593" selection-end-line="593" />
+        <state relative-caret-position="231">
+          <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar!/lombok/Builder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar!/lombok/Data.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -755,77 +752,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="617" column="82" selection-start-line="617" selection-start-column="57" selection-end-line="617" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="627" column="26" selection-start-line="627" selection-start-column="17" selection-end-line="627" selection-end-column="26" />
+        <state relative-caret-position="435">
+          <caret line="690" column="31" lean-forward="true" selection-start-line="690" selection-start-column="31" selection-end-line="690" selection-end-column="31" />
           <folding>
-            <element signature="e#22650#22651#0" expanded="true" />
-            <element signature="e#22677#22678#0" expanded="true" />
-            <element signature="e#22871#22872#0" expanded="true" />
-            <element signature="e#22898#22899#0" expanded="true" />
-            <element signature="e#23183#23184#0" expanded="true" />
-            <element signature="e#23210#23211#0" expanded="true" />
-            <element signature="e#23534#23535#0" expanded="true" />
-            <element signature="e#23561#23562#0" expanded="true" />
-            <element signature="e#23835#23836#0" expanded="true" />
-            <element signature="e#23862#23863#0" expanded="true" />
-            <element signature="e#24175#24176#0" expanded="true" />
-            <element signature="e#24202#24203#0" expanded="true" />
-            <element signature="e#24478#24479#0" expanded="true" />
-            <element signature="e#24505#24506#0" expanded="true" />
-            <element signature="e#24820#24821#0" expanded="true" />
-            <element signature="e#24847#24848#0" expanded="true" />
-            <element signature="e#25005#25006#0" expanded="true" />
-            <element signature="e#25032#25033#0" expanded="true" />
-            <element signature="e#25229#25230#0" expanded="true" />
-            <element signature="e#25256#25257#0" expanded="true" />
-            <element signature="e#25421#25422#0" expanded="true" />
-            <element signature="e#25448#25449#0" expanded="true" />
-            <element signature="e#25652#25653#0" expanded="true" />
-            <element signature="e#25679#25680#0" expanded="true" />
-            <element signature="e#25828#25829#0" expanded="true" />
-            <element signature="e#25855#25856#0" expanded="true" />
-            <element signature="e#26043#26044#0" expanded="true" />
-            <element signature="e#26070#26071#0" expanded="true" />
-            <element signature="e#26214#26215#0" expanded="true" />
-            <element signature="e#26241#26242#0" expanded="true" />
-            <element signature="e#26424#26425#0" expanded="true" />
-            <element signature="e#26451#26452#0" expanded="true" />
-            <element signature="e#26827#26828#0" expanded="true" />
-            <element signature="e#26854#26855#0" expanded="true" />
-            <element signature="e#27085#27086#0" expanded="true" />
-            <element signature="e#27158#27159#0" expanded="true" />
-            <element signature="e#27429#27430#0" expanded="true" />
-            <element signature="e#27502#27503#0" expanded="true" />
-            <element signature="e#27716#27717#0" expanded="true" />
-            <element signature="e#27743#27744#0" expanded="true" />
-            <element signature="e#28024#28025#0" expanded="true" />
-            <element signature="e#28051#28052#0" expanded="true" />
-            <element signature="e#28161#28162#0" expanded="true" />
-            <element signature="e#28186#28187#0" expanded="true" />
-            <element signature="e#28335#28336#0" expanded="true" />
-            <element signature="e#28360#28361#0" expanded="true" />
-            <element signature="e#28707#28708#0" expanded="true" />
-            <element signature="e#28734#28735#0" expanded="true" />
-            <element signature="e#29120#29121#0" expanded="true" />
-            <element signature="e#29147#29148#0" expanded="true" />
-            <element signature="e#29463#29464#0" expanded="true" />
-            <element signature="e#29490#29491#0" expanded="true" />
-            <element signature="e#29846#29847#0" expanded="true" />
-            <element signature="e#29873#29874#0" expanded="true" />
-            <element signature="e#30225#30226#0" expanded="true" />
-            <element signature="e#30252#30253#0" expanded="true" />
-            <element signature="e#30643#30644#0" expanded="true" />
-            <element signature="e#30670#30671#0" expanded="true" />
-            <element signature="e#30954#30955#0" expanded="true" />
-            <element signature="e#30981#30982#0" expanded="true" />
-            <element signature="e#31311#31312#0" expanded="true" />
-            <element signature="e#31338#31339#0" expanded="true" />
-            <element signature="e#31447#31448#0" expanded="true" />
-            <element signature="e#31474#31475#0" expanded="true" />
-            <element signature="e#31588#31589#0" expanded="true" />
-            <element signature="e#31615#31616#0" expanded="true" />
+            <element signature="e#25845#25846#0" expanded="true" />
+            <element signature="e#26185#26186#0" expanded="true" />
+            <element signature="e#26488#26489#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
+            <element signature="e#27015#27016#0" expanded="true" />
+            <element signature="e#27239#27240#0" expanded="true" />
+            <element signature="e#27431#27432#0" expanded="true" />
+            <element signature="e#27662#27663#0" expanded="true" />
+            <element signature="e#27838#27839#0" expanded="true" />
+            <element signature="e#28053#28054#0" expanded="true" />
+            <element signature="e#28224#28225#0" expanded="true" />
+            <element signature="e#28434#28435#0" expanded="true" />
+            <element signature="e#28837#28838#0" expanded="true" />
+            <element signature="e#29141#29142#0" expanded="true" />
+            <element signature="e#29485#29486#0" expanded="true" />
+            <element signature="e#29726#29727#0" expanded="true" />
+            <element signature="e#30034#30035#0" expanded="true" />
+            <element signature="e#30169#30170#0" expanded="true" />
+            <element signature="e#30343#30344#0" expanded="true" />
+            <element signature="e#30717#30718#0" expanded="true" />
+            <element signature="e#31130#31131#0" expanded="true" />
+            <element signature="e#31473#31474#0" expanded="true" />
+            <element signature="e#31856#31857#0" expanded="true" />
+            <element signature="e#32235#32236#0" expanded="true" />
+            <element signature="e#32653#32654#0" expanded="true" />
+            <element signature="e#32964#32965#0" expanded="true" />
+            <element signature="e#33321#33322#0" expanded="true" />
+            <element signature="e#33730#33731#0" expanded="true" />
           </folding>
         </state>
       </provider>

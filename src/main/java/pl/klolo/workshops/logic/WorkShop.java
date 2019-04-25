@@ -6,6 +6,7 @@ import pl.klolo.workshops.mock.HoldingMockGenerator;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -579,7 +580,8 @@ class WorkShop {
 
             return ((TreeMap<AccountType, Long>) accountTypeCounter).firstEntry().getKey();
         }
-        return null;
+
+        throw new IllegalStateException();
     }
 
     /**
@@ -590,10 +592,17 @@ class WorkShop {
 
         Map<AccountType, Long> accounts =
                 getAccoutStream()
-                        .map(account -> account.getType())
+                        .map(Account::getType)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        return accounts.entrySet().stream().max((s, f) -> f.getValue().intValue()).get().getKey();
+        // return accounts.entrySet().stream().max((s, f) -> f.getValue().intValue()).get().getKey();
+        return accounts.entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder((k, v) -> v.getValue().intValue()))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElseThrow(IllegalStateException::new);
+
 //            accounts.forEach((accountType, aLong) -> {
 //              System.out.printf("%s : %d%n", accountType.toString(), aLong);
 //            });
@@ -606,16 +615,16 @@ class WorkShop {
      */
     User getUser(final Predicate<User> predicate) {
 
-            for (Holding holding : holdings) {
-                for (Company company : holding.getCompanies()) {
-                    for (User user : company.getUsers()) {
-                        if (predicate.test(user)){
-                            return user;
-                        }
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    if (predicate.test(user)) {
+                        return user;
                     }
                 }
             }
-                throw new IllegalArgumentException();
+        }
+        throw new IllegalArgumentException();
     }
 
     /**
@@ -625,8 +634,7 @@ class WorkShop {
     User getUserAsStream(final Predicate<User> predicate) {
         return getUserStream()
                 .filter(user -> predicate.test(user))
-                .findFirst().orElseThrow(()->  new IllegalArgumentException());
-
+                .findFirst().orElseThrow(() -> new IllegalArgumentException());
 
 
     }
@@ -635,14 +643,29 @@ class WorkShop {
      * 42 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników.
      */
     Map<String, List<User>> getUserPerCompany() {
-        return null;
+
+        Map<String, List<User>> usersPerCompany = new HashMap<>();
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                usersPerCompany.put(company.getName(), company.getUsers());
+            }
+        }
+
+        return usersPerCompany;
     }
 
     /**
      * 43 Zwraca mapę firm, gdzie kluczem jest jej nazwa a wartością lista pracowników. Napisz to za pomocą strumieni.
      */
     Map<String, List<User>> getUserPerCompanyAsStream() {
-        return null;
+
+        return holdings.stream()
+                .flatMap(holding -> holding
+                        .getCompanies()
+                        .stream())
+                .collect(Collectors.toMap(Company::getName, Company::getUsers));
+
     }
 
     /**
@@ -650,7 +673,22 @@ class WorkShop {
      * Możesz skorzystać z metody entrySet.
      */
     Map<String, List<String>> getUserPerCompanyAsString() {
-        return null;
+
+        Map<String, List<String>> usersPerCompany = new HashMap<>();
+
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                ArrayList listOfNamesAsStrings = new ArrayList();
+
+                for (User user : company.getUsers()) {
+                    listOfNamesAsStrings.add(user.getFirstName() + " " + user.getLastName());
+                }
+                usersPerCompany.put(company.getName(), listOfNamesAsStrings);
+            }
+        }
+
+        return usersPerCompany;
     }
 
     /**
@@ -658,7 +696,16 @@ class WorkShop {
      * Możesz skorzystać z metody entrySet. Napisz to za pomocą strumieni.
      */
     Map<String, List<String>> getUserPerCompanyAsStringAsStream() {
-        return null;
+
+        BiFunction<String, String, String> joinFirstNameAndLastName = (f, s) -> f + " " + s;
+
+        return getCompanyStream()
+                .collect(Collectors
+                        .toMap(Company::getName, c -> c.getUsers()
+                                .stream()
+                                //  .map(u -> joinFirstNameAndLastName.apply(u.getFirstName(), u.getLastName()))
+                                .map(u -> u.getFirstName() + " " + u.getLastName())
+                                .collect(Collectors.toList())));
     }
 
     /**
@@ -874,7 +921,10 @@ class WorkShop {
      * 73 Zwraca strumień wszystkich firm.
      */
     private Stream<Company> getCompanyStream() {
-        return null;
+        return holdings.stream()
+                .flatMap(holding -> holding
+                        .getCompanies()
+                        .stream());
     }
 
     /**

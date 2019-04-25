@@ -10,4 +10,5 @@ import java.util.List;
 public class Company {
     private final String name;
     private final List<User> users;
+
 }
