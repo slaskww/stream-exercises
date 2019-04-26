@@ -968,7 +968,26 @@ class WorkShop {
      * 61 Zwraca mapę, gdzie kluczem jest typ rachunku a wartością kwota wszystkich środków na rachunkach tego typu przeliczona na złotówki.
      */
     Map<AccountType, BigDecimal> getMoneyOnAccounts() {
-        return null;
+
+        Map<AccountType, BigDecimal> moneyOnAccount = new HashMap<>();
+        moneyOnAccount.put(AccountType.ROR1, BigDecimal.ZERO);
+        moneyOnAccount.put(AccountType.ROR2, BigDecimal.ZERO);
+        moneyOnAccount.put(AccountType.RO1, BigDecimal.ZERO);
+        moneyOnAccount.put(AccountType.RO2, BigDecimal.ZERO);
+        moneyOnAccount.put(AccountType.LO1, BigDecimal.ZERO);
+        moneyOnAccount.put(AccountType.LO2, BigDecimal.ZERO);
+
+        for (Holding h:holdings){
+            for (Company c: h.getCompanies()){
+                for (User u: c.getUsers()){
+                   for (Account ac: u.getAccounts()){
+                       moneyOnAccount.get(ac.getType()).add(ac.getAmount().multiply(BigDecimal.valueOf(ac.getCurrency().rate)));
+                   }
+                }
+            }
+        }
+
+        return moneyOnAccount;
     }
 
     /**
@@ -976,7 +995,16 @@ class WorkShop {
      * strumieni. Ustaw precyzje na 0.
      */
     Map<AccountType, BigDecimal> getMoneyOnAccountsAsStream() {
-        return null;
+
+        return   getAccoutStream()
+                .collect(Collectors.toMap(Account::getType, acc->acc
+                        .getAmount()
+                        .multiply(BigDecimal
+                                .valueOf(acc.getCurrency()
+                                        .rate))
+                        .setScale(0, BigDecimal.ROUND_HALF_DOWN), BigDecimal::add ));
+
+
     }
 
     /**
