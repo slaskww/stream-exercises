@@ -752,7 +752,27 @@ class WorkShop {
      * jest natomiast zbiór nazwisk tych osób.
      */
     Map<Boolean, Set<String>> getUserBySex() {
-        return null;
+        Map<Boolean, Set<String>> usersBySex = new HashMap<>();
+        Set<String> women = new HashSet<>();
+        Set<String> men = new HashSet<>();
+
+        for (Holding holding: holdings){
+            for (Company company: holding.getCompanies()){
+                for (User user: company.getUsers()){
+                    if (user.getSex() == Sex.WOMAN){
+                        women.add(user.getLastName());
+                    } else if (user.getSex() == Sex.MAN){
+                        men.add(user.getLastName());
+                    }
+                }
+            }
+        }
+
+        usersBySex.put(true, men);
+        usersBySex.put(false, women);
+
+        return usersBySex;
+
     }
 
     /**
@@ -760,7 +780,15 @@ class WorkShop {
      * jest natomiast zbiór nazwisk tych osób. Napisz to za pomocą strumieni.
      */
     Map<Boolean, Set<String>> getUserBySexAsStream() {
-        return null;
+
+        Predicate<User> isManOrWOman = user -> user.getSex() == Sex.MAN || user.getSex() == Sex.WOMAN ;
+
+
+             return    getUserStream()
+                .filter(isManOrWOman::test)
+                .collect(Collectors.partitioningBy(user -> user.getSex() == Sex.MAN, Collectors.mapping(user -> user.getLastName(), Collectors.toSet())));
+
+
     }
 
     /**

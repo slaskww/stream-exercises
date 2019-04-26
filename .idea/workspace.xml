@@ -17,35 +17,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="714" column="38" lean-forward="true" selection-start-line="714" selection-start-column="38" selection-end-line="714" selection-end-column="38" />
+            <state relative-caret-position="365">
+              <caret line="781" column="35" lean-forward="true" selection-start-line="781" selection-start-column="35" selection-end-line="781" selection-end-column="35" />
               <folding>
-                <element signature="e#27365#27366#0" expanded="true" />
-                <element signature="e#27707#27708#0" expanded="true" />
-                <element signature="e#27892#27893#0" expanded="true" />
-                <element signature="e#28116#28117#0" expanded="true" />
-                <element signature="e#28308#28309#0" expanded="true" />
-                <element signature="e#28539#28540#0" expanded="true" />
-                <element signature="e#28715#28716#0" expanded="true" />
-                <element signature="e#28930#28931#0" expanded="true" />
-                <element signature="e#29101#29102#0" expanded="true" />
-                <element signature="e#29311#29312#0" expanded="true" />
-                <element signature="e#29714#29715#0" expanded="true" />
-                <element signature="e#30018#30019#0" expanded="true" />
-                <element signature="e#30362#30363#0" expanded="true" />
-                <element signature="e#30603#30604#0" expanded="true" />
-                <element signature="e#30911#30912#0" expanded="true" />
-                <element signature="e#31046#31047#0" expanded="true" />
-                <element signature="e#31220#31221#0" expanded="true" />
-                <element signature="e#31594#31595#0" expanded="true" />
-                <element signature="e#32007#32008#0" expanded="true" />
-                <element signature="e#32350#32351#0" expanded="true" />
-                <element signature="e#32733#32734#0" expanded="true" />
-                <element signature="e#33112#33113#0" expanded="true" />
-                <element signature="e#33530#33531#0" expanded="true" />
-                <element signature="e#33841#33842#0" expanded="true" />
-                <element signature="e#34198#34199#0" expanded="true" />
-                <element signature="e#34607#34608#0" expanded="true" />
+                <element signature="e#27857#27858#0" expanded="true" />
+                <element signature="e#27884#27885#0" expanded="true" />
+                <element signature="e#28081#28082#0" expanded="true" />
+                <element signature="e#28108#28109#0" expanded="true" />
+                <element signature="e#28273#28274#0" expanded="true" />
+                <element signature="e#28300#28301#0" expanded="true" />
+                <element signature="e#28504#28505#0" expanded="true" />
+                <element signature="e#28531#28532#0" expanded="true" />
+                <element signature="e#28680#28681#0" expanded="true" />
+                <element signature="e#28707#28708#0" expanded="true" />
+                <element signature="e#28895#28896#0" expanded="true" />
+                <element signature="e#28922#28923#0" expanded="true" />
+                <element signature="e#29066#29067#0" expanded="true" />
+                <element signature="e#29093#29094#0" expanded="true" />
+                <element signature="e#29276#29277#0" expanded="true" />
+                <element signature="e#29303#29304#0" expanded="true" />
+                <element signature="e#29679#29680#0" expanded="true" />
+                <element signature="e#29706#29707#0" expanded="true" />
+                <element signature="e#29937#29938#0" expanded="true" />
+                <element signature="e#30010#30011#0" expanded="true" />
+                <element signature="e#30281#30282#0" expanded="true" />
+                <element signature="e#30354#30355#0" expanded="true" />
+                <element signature="e#30568#30569#0" expanded="true" />
+                <element signature="e#30595#30596#0" expanded="true" />
+                <element signature="e#30876#30877#0" expanded="true" />
+                <element signature="e#30903#30904#0" expanded="true" />
+                <element signature="e#31013#31014#0" expanded="true" />
+                <element signature="e#31038#31039#0" expanded="true" />
+                <element signature="e#31187#31188#0" expanded="true" />
+                <element signature="e#31212#31213#0" expanded="true" />
+                <element signature="e#31559#31560#0" expanded="true" />
+                <element signature="e#31586#31587#0" expanded="true" />
+                <element signature="e#31972#31973#0" expanded="true" />
+                <element signature="e#31999#32000#0" expanded="true" />
+                <element signature="e#32315#32316#0" expanded="true" />
+                <element signature="e#32342#32343#0" expanded="true" />
+                <element signature="e#32698#32699#0" expanded="true" />
+                <element signature="e#32725#32726#0" expanded="true" />
+                <element signature="e#33077#33078#0" expanded="true" />
+                <element signature="e#33104#33105#0" expanded="true" />
+                <element signature="e#33495#33496#0" expanded="true" />
+                <element signature="e#33522#33523#0" expanded="true" />
+                <element signature="e#33806#33807#0" expanded="true" />
+                <element signature="e#33833#33834#0" expanded="true" />
+                <element signature="e#34163#34164#0" expanded="true" />
+                <element signature="e#34190#34191#0" expanded="true" />
+                <element signature="e#34572#34573#0" expanded="true" />
+                <element signature="e#34599#34600#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Optional.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="4165">
               <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
             </state>
           </provider>
@@ -72,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="282" column="57" selection-start-line="282" selection-start-column="57" selection-end-line="282" selection-end-column="57" />
+            <state relative-caret-position="223">
+              <caret line="639" column="58" selection-start-line="639" selection-start-column="58" selection-end-line="639" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -82,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -143,11 +165,6 @@
       </list>
     </option>
   </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="JUnit" name="Rerun Failed Tests" />
-    </enabled-run-configurations>
-  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -171,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,11 +273,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556217107814" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556276341331" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NI" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -280,39 +297,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction">
-    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java8-stream-free-exercises" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
-      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java8-stream-free-exercises" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
-      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListAsString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.WorkShopTest.shouldSegregateUserBySexAsStream">
     <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
@@ -361,13 +346,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WorkShopTest.shouldSegregateUserBySex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java8-stream-free-exercises" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
+      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
+      <option name="METHOD_NAME" value="shouldSegregateUserBySex" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkShopTest.shouldSegregateUserBySexAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java8-stream-free-exercises" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
+      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
+      <option name="METHOD_NAME" value="shouldSegregateUserBySexAsStream" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WorkShopTest.shouldSegregateUserBySexAsStream" />
+        <item itemvalue="JUnit.WorkShopTest.shouldSegregateUserBySex" />
         <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" />
         <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream" />
         <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" />
-        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsString" />
-        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserList" />
       </list>
     </recent_temporary>
   </component>
@@ -385,18 +402,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 19h 54m 46s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 19h 56m 17s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsStringAsStream - 2019.04.25 at 19h 57m 44s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 20h 10m 53s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListUsingPassedFunction - 2019.04.25 at 20h 10m 59s.xml">
       <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" configurationId="JUnit" />
     </history-entry>
@@ -415,6 +420,18 @@
     <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream - 2019.04.25 at 20h 27m 59s.xml">
       <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListUsingPassedFunction - 2019.04.25 at 20h 38m 27s.xml">
+      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldSegregateUserBySex - 2019.04.26 at 12h 14m 16s.xml">
+      <configuration name="WorkShopTest.shouldSegregateUserBySex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldSegregateUserBySexAsStream - 2019.04.26 at 12h 51m 09s.xml">
+      <configuration name="WorkShopTest.shouldSegregateUserBySexAsStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldSegregateUserBySexAsStream - 2019.04.26 at 12h 59m 07s.xml">
+      <configuration name="WorkShopTest.shouldSegregateUserBySexAsStream" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,7 +446,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4993046" visible="true" weight="0.26226014" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4993046" visible="true" weight="0.26492536" />
       <window_info id="Structure" order="1" sideWeight="0.5006954" side_tool="true" weight="0.26226014" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -715,20 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar!/lombok/Builder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -750,52 +753,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4165">
+          <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/stream/Collectors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="996">
+          <caret line="850" column="31" selection-start-line="850" selection-start-column="31" selection-end-line="850" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="714" column="38" lean-forward="true" selection-start-line="714" selection-start-column="38" selection-end-line="714" selection-end-column="38" />
+        <state relative-caret-position="365">
+          <caret line="781" column="35" lean-forward="true" selection-start-line="781" selection-start-column="35" selection-end-line="781" selection-end-column="35" />
           <folding>
-            <element signature="e#27365#27366#0" expanded="true" />
-            <element signature="e#27707#27708#0" expanded="true" />
-            <element signature="e#27892#27893#0" expanded="true" />
-            <element signature="e#28116#28117#0" expanded="true" />
-            <element signature="e#28308#28309#0" expanded="true" />
-            <element signature="e#28539#28540#0" expanded="true" />
-            <element signature="e#28715#28716#0" expanded="true" />
-            <element signature="e#28930#28931#0" expanded="true" />
-            <element signature="e#29101#29102#0" expanded="true" />
-            <element signature="e#29311#29312#0" expanded="true" />
-            <element signature="e#29714#29715#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30362#30363#0" expanded="true" />
-            <element signature="e#30603#30604#0" expanded="true" />
-            <element signature="e#30911#30912#0" expanded="true" />
-            <element signature="e#31046#31047#0" expanded="true" />
-            <element signature="e#31220#31221#0" expanded="true" />
-            <element signature="e#31594#31595#0" expanded="true" />
-            <element signature="e#32007#32008#0" expanded="true" />
-            <element signature="e#32350#32351#0" expanded="true" />
-            <element signature="e#32733#32734#0" expanded="true" />
-            <element signature="e#33112#33113#0" expanded="true" />
-            <element signature="e#33530#33531#0" expanded="true" />
-            <element signature="e#33841#33842#0" expanded="true" />
-            <element signature="e#34198#34199#0" expanded="true" />
-            <element signature="e#34607#34608#0" expanded="true" />
+            <element signature="e#27857#27858#0" expanded="true" />
+            <element signature="e#27884#27885#0" expanded="true" />
+            <element signature="e#28081#28082#0" expanded="true" />
+            <element signature="e#28108#28109#0" expanded="true" />
+            <element signature="e#28273#28274#0" expanded="true" />
+            <element signature="e#28300#28301#0" expanded="true" />
+            <element signature="e#28504#28505#0" expanded="true" />
+            <element signature="e#28531#28532#0" expanded="true" />
+            <element signature="e#28680#28681#0" expanded="true" />
+            <element signature="e#28707#28708#0" expanded="true" />
+            <element signature="e#28895#28896#0" expanded="true" />
+            <element signature="e#28922#28923#0" expanded="true" />
+            <element signature="e#29066#29067#0" expanded="true" />
+            <element signature="e#29093#29094#0" expanded="true" />
+            <element signature="e#29276#29277#0" expanded="true" />
+            <element signature="e#29303#29304#0" expanded="true" />
+            <element signature="e#29679#29680#0" expanded="true" />
+            <element signature="e#29706#29707#0" expanded="true" />
+            <element signature="e#29937#29938#0" expanded="true" />
+            <element signature="e#30010#30011#0" expanded="true" />
+            <element signature="e#30281#30282#0" expanded="true" />
+            <element signature="e#30354#30355#0" expanded="true" />
+            <element signature="e#30568#30569#0" expanded="true" />
+            <element signature="e#30595#30596#0" expanded="true" />
+            <element signature="e#30876#30877#0" expanded="true" />
+            <element signature="e#30903#30904#0" expanded="true" />
+            <element signature="e#31013#31014#0" expanded="true" />
+            <element signature="e#31038#31039#0" expanded="true" />
+            <element signature="e#31187#31188#0" expanded="true" />
+            <element signature="e#31212#31213#0" expanded="true" />
+            <element signature="e#31559#31560#0" expanded="true" />
+            <element signature="e#31586#31587#0" expanded="true" />
+            <element signature="e#31972#31973#0" expanded="true" />
+            <element signature="e#31999#32000#0" expanded="true" />
+            <element signature="e#32315#32316#0" expanded="true" />
+            <element signature="e#32342#32343#0" expanded="true" />
+            <element signature="e#32698#32699#0" expanded="true" />
+            <element signature="e#32725#32726#0" expanded="true" />
+            <element signature="e#33077#33078#0" expanded="true" />
+            <element signature="e#33104#33105#0" expanded="true" />
+            <element signature="e#33495#33496#0" expanded="true" />
+            <element signature="e#33522#33523#0" expanded="true" />
+            <element signature="e#33806#33807#0" expanded="true" />
+            <element signature="e#33833#33834#0" expanded="true" />
+            <element signature="e#34163#34164#0" expanded="true" />
+            <element signature="e#34190#34191#0" expanded="true" />
+            <element signature="e#34572#34573#0" expanded="true" />
+            <element signature="e#34599#34600#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="282" column="57" selection-start-line="282" selection-start-column="57" selection-end-line="282" selection-end-column="57" />
+        <state relative-caret-position="223">
+          <caret line="639" column="58" selection-start-line="639" selection-start-column="58" selection-end-line="639" selection-end-column="58" />
         </state>
       </provider>
     </entry>
