@@ -14,16 +14,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="781" column="35" lean-forward="true" selection-start-line="781" selection-start-column="35" selection-end-line="781" selection-end-column="35" />
+            <state relative-caret-position="318">
+              <caret line="806" column="17" lean-forward="true" selection-start-line="806" selection-start-column="17" selection-end-line="806" selection-end-column="17" />
               <folding>
-                <element signature="e#27857#27858#0" expanded="true" />
-                <element signature="e#27884#27885#0" expanded="true" />
-                <element signature="e#28081#28082#0" expanded="true" />
-                <element signature="e#28108#28109#0" expanded="true" />
                 <element signature="e#28273#28274#0" expanded="true" />
                 <element signature="e#28300#28301#0" expanded="true" />
                 <element signature="e#28504#28505#0" expanded="true" />
@@ -74,6 +70,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Company.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -91,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="639" column="58" selection-start-line="639" selection-start-column="58" selection-end-line="639" selection-end-column="58" />
+              <caret line="306" column="51" selection-start-line="306" selection-start-column="51" selection-end-line="306" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -278,7 +283,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556276341331" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556277312295" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NI" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -297,8 +302,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkShopTest.shouldSegregateUserBySexAsStream">
-    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.WorkShopTest.shouldCreateAccountsMap">
+    <configuration name="WorkShopTest.shouldCreateAccountsMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -308,7 +313,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListAsStringAsStream" />
+      <option name="METHOD_NAME" value="shouldCreateAccountsMap" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkShopTest.shouldCreateAccountsMapAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java8-stream-free-exercises" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
+      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
+      <option name="METHOD_NAME" value="shouldCreateAccountsMapAsStream" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -325,22 +346,6 @@
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
       <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListUsingPassedFunction" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java8-stream-free-exercises" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.klolo.workshops.logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
-      <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -380,11 +385,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WorkShopTest.shouldCreateAccountsMap" />
+        <item itemvalue="JUnit.WorkShopTest.shouldCreateAccountsMapAsStream" />
         <item itemvalue="JUnit.WorkShopTest.shouldSegregateUserBySexAsStream" />
         <item itemvalue="JUnit.WorkShopTest.shouldSegregateUserBySex" />
         <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" />
-        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunctionAsStream" />
-        <item itemvalue="JUnit.WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" />
       </list>
     </recent_temporary>
   </component>
@@ -402,15 +407,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListUsingPassedFunction - 2019.04.25 at 20h 10m 59s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListUsingPassedFunction" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserList - 2019.04.25 at 20h 11m 07s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsString - 2019.04.25 at 20h 11m 47s.xml">
-      <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsString" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WorkShopTest_shouldReturnCompanyMapWithUserListAsStringAsStream - 2019.04.25 at 20h 11m 53s.xml">
       <configuration name="WorkShopTest.shouldReturnCompanyMapWithUserListAsStringAsStream" configurationId="JUnit" />
     </history-entry>
@@ -431,6 +427,15 @@
     </history-entry>
     <history-entry file="WorkShopTest_shouldSegregateUserBySexAsStream - 2019.04.26 at 12h 59m 07s.xml">
       <configuration name="WorkShopTest.shouldSegregateUserBySexAsStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldSegregateUserBySexAsStream - 2019.04.26 at 13h 00m 02s.xml">
+      <configuration name="WorkShopTest.shouldSegregateUserBySexAsStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldCreateAccountsMapAsStream - 2019.04.26 at 13h 09m 53s.xml">
+      <configuration name="WorkShopTest.shouldCreateAccountsMapAsStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldCreateAccountsMap - 2019.04.26 at 13h 12m 52s.xml">
+      <configuration name="WorkShopTest.shouldCreateAccountsMap" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -637,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/AccountType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -781,15 +779,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="306" column="51" selection-start-line="306" selection-start-column="51" selection-end-line="306" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="781" column="35" lean-forward="true" selection-start-line="781" selection-start-column="35" selection-end-line="781" selection-end-column="35" />
+        <state relative-caret-position="318">
+          <caret line="806" column="17" lean-forward="true" selection-start-line="806" selection-start-column="17" selection-end-line="806" selection-end-column="17" />
           <folding>
-            <element signature="e#27857#27858#0" expanded="true" />
-            <element signature="e#27884#27885#0" expanded="true" />
-            <element signature="e#28081#28082#0" expanded="true" />
-            <element signature="e#28108#28109#0" expanded="true" />
             <element signature="e#28273#28274#0" expanded="true" />
             <element signature="e#28300#28301#0" expanded="true" />
             <element signature="e#28504#28505#0" expanded="true" />
@@ -835,13 +843,6 @@
             <element signature="e#34572#34573#0" expanded="true" />
             <element signature="e#34599#34600#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="639" column="58" selection-start-line="639" selection-start-column="58" selection-end-line="639" selection-end-column="58" />
         </state>
       </provider>
     </entry>

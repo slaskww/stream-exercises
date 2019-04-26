@@ -792,17 +792,31 @@ class WorkShop {
     }
 
     /**
-     * 50 Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek.
+     * 50 Zwraca mapę rachunków, gdzie kluczem jest numer rachunku, a wartością ten rachunek.
      */
     Map<String, Account> createAccountsMap() {
-        return null;
+
+        Map<String, Account> accountsMap = new HashMap<>();
+
+        for(Holding holding: holdings){
+            for (Company company: holding.getCompanies()){
+                for (User user: company.getUsers()){
+                    for (Account account: user.getAccounts()){
+                        accountsMap.put(account.getNumber(), account);
+                    }
+                }
+            }
+        }
+
+        accountsMap.entrySet().forEach(entry -> System.out.println("key: " + entry.getKey() + " value: " + entry.getValue()));
+     return accountsMap;
     }
 
     /**
-     * 51 Zwraca mapę rachunków, gdzie kluczem jesy numer rachunku, a wartością ten rachunek. Napisz to za pomocą strumieni.
+     * 51 Zwraca mapę rachunków, gdzie kluczem jest numer rachunku, a wartością ten rachunek. Napisz to za pomocą strumieni.
      */
     Map<String, Account> createAccountsMapAsStream() {
-        return null;
+        return getAccoutStream().collect(Collectors.toMap(account ->  account.getNumber(), account ->  account));
     }
 
     /**
