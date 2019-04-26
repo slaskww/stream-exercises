@@ -820,37 +820,85 @@ class WorkShop {
     }
 
     /**
-     * 52 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń.
+     * 52 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją, są posortowane i nie zawierają powtórzeń.
      */
     String getUserNames() {
-        return null;
+
+        StringBuilder names = new StringBuilder();
+        Set<String> namesInSet = new TreeSet<>();
+
+        for(Holding holding: holdings){
+            for (Company company: holding.getCompanies()){
+                for (User user: company.getUsers()){
+                   namesInSet.add(user.getFirstName());
+                }
+            }
+        }
+
+        for (String name :namesInSet){
+            names.append(" ").append(name);
+        }
+
+        names.deleteCharAt(0);
+        System.out.println(names.toString());
+        return  names.toString();
     }
 
     /**
-     * 53 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją i nie zawierają powtórzeń. Napisz to za pomocą strumieni.
+     * 53 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją, są posortowane i nie zawierają powtórzeń. Napisz to za pomocą strumieni.
      */
     String getUserNamesAsStream() {
-        return null;
+       String names =  getUserStream().map(user -> user.getFirstName()).distinct().sorted().collect(Collectors.joining(" "));
+
+        System.out.println(names);
+       return names;
     }
 
     /**
      * 54 zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10.
      */
     Set<User> getUsers() {
-        return null;
+
+        Set<User> users = new HashSet<>();
+        int counter = 0;
+
+        for(Holding holding: holdings){
+            for (Company company: holding.getCompanies()){
+                for (User user: company.getUsers()){
+                   users.add(user);
+                   counter++;
+                   if (counter == 10){
+                       return users;
+                   }
+
+                }
+            }
+        }
+        return users;
     }
 
     /**
      * 55 zwraca zbiór wszystkich użytkowników. Jeżeli jest ich więcej niż 10 to obcina ich ilość do 10. Napisz to za pomocą strumieni.
      */
     Set<User> getUsersAsStream() {
-        return null;
+        return getUserStream().limit(10).collect(Collectors.toSet());
     }
 
     /**
      * 56 Zwraca użytkownika, który spełnia podany warunek.
      */
     Optional<User> findUser(final Predicate<User> userPredicate) {
+
+        for(Holding holding: holdings){
+            for (Company company: holding.getCompanies()){
+                for (User user: company.getUsers()){
+                   if (userPredicate.test(user)){
+                       return Optional.of(user);
+                   }
+
+                }
+            }
+        }
         return null;
     }
 
@@ -858,7 +906,7 @@ class WorkShop {
      * 57 Zwraca użytkownika, który spełnia podany warunek. Napisz to za pomocą strumieni.
      */
     Optional<User> findUserAsStream(final Predicate<User> userPredicate) {
-        return null;
+        return getUserStream().filter(user -> userPredicate.test(user)).findFirst();
     }
 
     /**
