@@ -14,6 +14,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.lang.String.format;
 import static java.util.Objects.nonNull;
 
 class WorkShop {
@@ -916,15 +917,40 @@ class WorkShop {
      * Uwaga: W prawdziwym kodzie nie przekazuj Optionali jako parametrów. Napisz to za pomocą strumieni.
      */
     String getAdultantStatusAsStream(final Optional<User> user) {
-        return null;
+
+//        Predicate<User> currentUser = user1 -> user.isPresent() && Objects.equals(user1, user.get());
+//
+//
+//
+//
+//        return getUserStream().filter(currentUser::test)
+//                .map(user1 -> user1.getFirstName() + " " + user1.getLastName() + " ma lat " + user1.getAge())
+//                .findFirst()
+//                .orElse("Brak użytkownika");
+
+        return user.flatMap(u -> getUserStream().filter(u2 -> Objects.equals(u2, u)).findFirst())
+                .map(u -> format("%s %s ma lat %d", u.getFirstName(), u.getLastName(), u.getAge()))
+                .orElse("Brak użytkownika");
+
+
+
     }
+
 
     /**
      * 59 Metoda wypisuje na ekranie wszystkich użytkowników (imie, nazwisko) posortowanych od z do a. Zosia Psikuta, Zenon Kucowski, Zenek Jawowy ... Alfred
      * Pasibrzuch, Adam Wojcik
      */
     void showAllUser() {
-        throw new IllegalArgumentException("not implemented yet");
+
+        ArrayList<User> users = new ArrayList<>();
+        for (Holding h:holdings){
+            for (Company c: h.getCompanies()){
+                for (User u: c.getUsers()){
+                    System.out.printf("(%s %s)%n", u.getFirstName(), u.getLastName());
+                }
+            }
+        }
     }
 
     /**
@@ -932,7 +958,10 @@ class WorkShop {
      * Pasibrzuch, Adam Wojcik. Napisz to za pomocą strumieni.
      */
     void showAllUserAsStream() {
-        throw new IllegalArgumentException("not implemented yet");
+
+        getUserStream()
+                .sorted(Comparator.comparing(User::getFirstName).reversed())
+                .forEach(user -> System.out.printf("(%s %s)%n",user.getFirstName(), user.getLastName()));
     }
 
     /**
