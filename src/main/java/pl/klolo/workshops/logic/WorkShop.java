@@ -6,6 +6,7 @@ import pl.klolo.workshops.mock.HoldingMockGenerator;
 import pl.klolo.workshops.mock.UserMockGenerator;
 
 import java.math.BigDecimal;
+import java.security.SecureRandom;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collector;
@@ -1065,17 +1066,24 @@ class WorkShop {
     List<User> getRandomUsersAsStream(final int n) {
 
 
-        final UserMockGenerator userMockGenerator = new UserMockGenerator();
+//        final UserMockGenerator userMockGenerator = new UserMockGenerator();
+//
+//        return Optional.of(userMockGenerator.generate().stream()
+//                .collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
+//                    Collections.shuffle(collected);
+//                    return collected.stream();
+//                }))
+//                .limit(n)
+//                .distinct()
+//                .collect(Collectors.toList()))
+//                .orElseThrow(ArrayIndexOutOfBoundsException::new);
 
-        return Optional.of(userMockGenerator.generate().stream()
-                .collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
-                    Collections.shuffle(collected);
-                    return collected.stream();
-                }))
-                .limit(n)
-                .distinct()
-                .collect(Collectors.toList()))
-                .orElseThrow(ArrayIndexOutOfBoundsException::new);
+       final List<User> allUsers =  getUserStream().collect(Collectors.toList());
+
+        SecureRandom rand = new SecureRandom();
+        Supplier<User> userSupplier = () -> allUsers.get(rand.nextInt(allUsers.size()));
+
+       return Stream.generate(userSupplier).limit(n).distinct().collect(Collectors.toList());
 
     }
 
@@ -1083,7 +1091,46 @@ class WorkShop {
      * 67 Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
      * na rachunku danego typu przeliczona na złotkówki.
      */
+
+    private Map<User, BigDecimal> manWithSumMoneyOnAccounts(final Company company) {
+        return company
+                .getUsers()
+                .stream()
+                .filter(user -> user.getSex() == Sex.MAN)
+                .collect(Collectors.toMap(
+                        Function.identity(),
+                        this::getSumUserAmountInPLN
+                ));
+    }
+
+    private BigDecimal getSumUserAmountInPLN(final User user) {
+        return user.getAccounts()
+                .stream()
+                .map(this::getAccountAmountInPLN)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
     Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMap() {
+
+
+        Map<User, BigDecimal> userMoney = getUserStream()
+                .filter(user -> user.getSex() == Sex.MAN)
+                .collect(Collectors.toMap(Function.identity(), user -> user.getAccounts()
+                        .stream()
+                        .map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate))).reduce(BigDecimal::add).get()));
+
+      //  return getUserStream().collect(Collectors.toMap(u -> u.getAccounts().stream().map(Account::getType), Collectors.toMap(Function.identity(), User::getAccounts)));
+
+//        return getCompanyStream()
+//                .collect(Collectors.toMap(
+//                        company -> company.getUsers()
+//                                .stream()
+//                                .flatMap(user -> user.getAccounts()
+//                                        .stream()
+//                                        .map(Account::getType)),
+//                        this::manWithSumMoneyOnAccounts
+//                ));
+
         return null;
     }
 
