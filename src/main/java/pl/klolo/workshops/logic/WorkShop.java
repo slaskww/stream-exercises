@@ -1011,14 +1011,29 @@ class WorkShop {
      * 63 Zwraca sumę kwadratów wieków wszystkich użytkowników.
      */
     int getAgeSquaresSum() {
-        return -1;
+
+        int ageSquareSum = 0;
+
+                for (Holding holding: holdings){
+                    for (Company company: holding.getCompanies()){
+                        for (User user: company.getUsers()){
+                            ageSquareSum += Math.pow(user.getAge(), 2);
+                        }
+                    }
+                }
+
+        return ageSquareSum;
     }
+
+
 
     /**
      * 64 Zwraca sumę kwadratów wieków wszystkich użytkowników. Napisz to za pomocą strumieni.
      */
     int getAgeSquaresSumAsStream() {
-        return -1;
+
+      return   getUserStream().mapToInt(user -> user.getAge() * user.getAge()).sum();
+
     }
 
     /**
