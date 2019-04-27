@@ -3,13 +3,11 @@ package pl.klolo.workshops.logic;
 import pl.klolo.workshops.domain.Currency;
 import pl.klolo.workshops.domain.*;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
+import pl.klolo.workshops.mock.UserMockGenerator;
 
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -1041,7 +1039,23 @@ class WorkShop {
      * final. Jeżeli podano liczbę większą niż liczba użytkowników należy wyrzucić wyjątek (bez zmiany sygnatury metody).
      */
     List<User> getRandomUsers(final int n) {
-        return null;
+
+     List<User> allUsers =  getUserStream().collect(Collectors.toList());
+     List<User> randomUsers = new ArrayList<>();
+
+
+     if (n > allUsers.size()){
+         throw new ArrayIndexOutOfBoundsException();
+     }
+
+     for (int i = 1; i <= n; i++){
+
+         randomUsers.add(allUsers.get(i));
+         allUsers.remove(i);
+     }
+
+    return randomUsers;
+
     }
 
     /**
@@ -1049,7 +1063,20 @@ class WorkShop {
      * final. Jeżeli podano liczbę większą niż liczba użytkowników należy wyrzucić wyjątek (bez zmiany sygnatury metody). Napisz to za pomocą strumieni.
      */
     List<User> getRandomUsersAsStream(final int n) {
-        return null;
+
+
+        final UserMockGenerator userMockGenerator = new UserMockGenerator();
+
+        return Optional.of(userMockGenerator.generate().stream()
+                .collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
+                    Collections.shuffle(collected);
+                    return collected.stream();
+                }))
+                .limit(n)
+                .distinct()
+                .collect(Collectors.toList()))
+                .orElseThrow(ArrayIndexOutOfBoundsException::new);
+
     }
 
     /**

@@ -17,8 +17,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="1032" column="36" lean-forward="true" selection-start-line="1032" selection-start-column="36" selection-end-line="1032" selection-end-column="36" />
+            <state relative-caret-position="450">
+              <caret line="1052" column="9" lean-forward="true" selection-start-line="1052" selection-start-column="9" selection-end-line="1052" selection-end-column="9" />
+              <folding>
+                <element signature="e#38888#38889#0" expanded="true" />
+                <element signature="e#39271#39272#0" expanded="true" />
+                <element signature="e#39650#39651#0" expanded="true" />
+                <element signature="e#40068#40069#0" expanded="true" />
+                <element signature="e#40379#40380#0" expanded="true" />
+                <element signature="e#40736#40737#0" expanded="true" />
+                <element signature="e#41145#41146#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/mock/UserMockGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -26,21 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/stream/Collectors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="1489" column="42" selection-start-line="1489" selection-start-column="42" selection-end-line="1489" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/Comparator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5219">
-              <caret line="337" column="66" selection-start-line="337" selection-start-column="66" selection-end-line="337" selection-end-column="66" />
-              <folding>
-                <element signature="e#14106#14107#0" expanded="true" />
-                <element signature="e#14155#14156#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="427">
+              <caret line="377" column="46" selection-start-line="377" selection-start-column="46" selection-end-line="377" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -89,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="383" column="41" selection-start-line="383" selection-start-column="41" selection-end-line="383" selection-end-column="41" />
+              <caret line="392" column="44" selection-start-line="392" selection-start-column="44" selection-end-line="392" selection-end-column="44" />
               <folding>
                 <element signature="e#9859#9860#0" expanded="true" />
                 <element signature="e#9891#9892#0" expanded="true" />
@@ -112,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            <state relative-caret-position="68">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -289,7 +294,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556342209593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556347828299" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NI" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -308,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkShopTest.shouldCalculateSumOfSquareAgeAsStream">
+  <component name="RunManager" selected="JUnit.WorkShopTest.shouldGetRandomNUserAsStream">
     <configuration name="WorkShopTest.shouldCalculateSumOfSquareAge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
@@ -357,7 +362,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldCountMoneyOnAllAccountsAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldGetRandomNUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -367,13 +372,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldCountMoneyOnAllAccountsAsStream" />
+      <option name="METHOD_NAME" value="shouldGetRandomNUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest.shouldSortAndDisplayUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkShopTest.shouldGetRandomNUserAsStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java8-stream-free-exercises" />
       <extension name="coverage">
         <pattern>
@@ -383,7 +388,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.klolo.workshops.logic" />
       <option name="MAIN_CLASS_NAME" value="pl.klolo.workshops.logic.WorkShopTest" />
-      <option name="METHOD_NAME" value="shouldSortAndDisplayUser" />
+      <option name="METHOD_NAME" value="shouldGetRandomNUserAsStream" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -391,11 +396,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WorkShopTest.shouldGetRandomNUserAsStream" />
+        <item itemvalue="JUnit.WorkShopTest.shouldGetRandomNUser" />
         <item itemvalue="JUnit.WorkShopTest.shouldCalculateSumOfSquareAgeAsStream" />
         <item itemvalue="JUnit.WorkShopTest.shouldCalculateSumOfSquareAge" />
         <item itemvalue="JUnit.WorkShopTest.shouldCountMoneyOnAllAccounts" />
-        <item itemvalue="JUnit.WorkShopTest.shouldCountMoneyOnAllAccountsAsStream" />
-        <item itemvalue="JUnit.WorkShopTest.shouldSortAndDisplayUser" />
       </list>
     </recent_temporary>
   </component>
@@ -413,15 +418,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WorkShopTest_shouldSortAndDisplayUser - 2019.04.26 at 19h 13m 06s.xml">
-      <configuration name="WorkShopTest.shouldSortAndDisplayUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldSortAndDisplayUser - 2019.04.26 at 19h 16m 59s.xml">
-      <configuration name="WorkShopTest.shouldSortAndDisplayUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WorkShopTest_shouldCountMoneyOnAllAccounts - 2019.04.26 at 20h 01m 23s.xml">
-      <configuration name="WorkShopTest.shouldCountMoneyOnAllAccounts" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WorkShopTest_shouldCountMoneyOnAllAccountsAsStream - 2019.04.26 at 20h 04m 14s.xml">
       <configuration name="WorkShopTest.shouldCountMoneyOnAllAccountsAsStream" configurationId="JUnit" />
     </history-entry>
@@ -443,6 +439,15 @@
     <history-entry file="WorkShopTest_shouldCalculateSumOfSquareAge - 2019.04.27 at 07h 07m 29s.xml">
       <configuration name="WorkShopTest.shouldCalculateSumOfSquareAge" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WorkShopTest_shouldCalculateSumOfSquareAgeAsStream - 2019.04.27 at 07h 16m 57s.xml">
+      <configuration name="WorkShopTest.shouldCalculateSumOfSquareAgeAsStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldGetRandomNUser - 2019.04.27 at 08h 26m 00s.xml">
+      <configuration name="WorkShopTest.shouldGetRandomNUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WorkShopTest_shouldGetRandomNUser - 2019.04.27 at 08h 28m 32s.xml">
+      <configuration name="WorkShopTest.shouldGetRandomNUser" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,7 +462,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4993046" visible="true" weight="0.27025586" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4993046" visible="true" weight="0.27025586" />
       <window_info id="Structure" order="1" sideWeight="0.5006954" side_tool="true" weight="0.26226014" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -467,7 +472,7 @@
       <window_info id="simpleUML" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59275055" visible="true" weight="0.22101842" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59275055" visible="true" weight="0.22101842" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49733475" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -814,17 +819,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/WorkShopTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="383" column="41" selection-start-line="383" selection-start-column="41" selection-end-line="383" selection-end-column="41" />
+          <caret line="392" column="44" selection-start-line="392" selection-start-column="44" selection-end-line="392" selection-end-column="44" />
           <folding>
             <element signature="e#9859#9860#0" expanded="true" />
             <element signature="e#9891#9892#0" expanded="true" />
@@ -834,17 +832,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/mock/UserMockGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Java/jdk1.8.0_201/src.zip!/java/util/stream/Collectors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="1489" column="42" selection-start-line="1489" selection-start-column="42" selection-end-line="1489" selection-end-column="42" />
+        <state relative-caret-position="427">
+          <caret line="377" column="46" selection-start-line="377" selection-start-column="46" selection-end-line="377" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/klolo/workshops/logic/WorkShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="1032" column="36" lean-forward="true" selection-start-line="1032" selection-start-column="36" selection-end-line="1032" selection-end-column="36" />
+        <state relative-caret-position="450">
+          <caret line="1052" column="9" lean-forward="true" selection-start-line="1052" selection-start-column="9" selection-end-line="1052" selection-end-column="9" />
+          <folding>
+            <element signature="e#38888#38889#0" expanded="true" />
+            <element signature="e#39271#39272#0" expanded="true" />
+            <element signature="e#39650#39651#0" expanded="true" />
+            <element signature="e#40068#40069#0" expanded="true" />
+            <element signature="e#40379#40380#0" expanded="true" />
+            <element signature="e#40736#40737#0" expanded="true" />
+            <element signature="e#41145#41146#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
