@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -762,8 +764,8 @@ public class WorkShopTest {
     assertEquals(accountUserMoneyInPLNMap.size(), 6L);
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6L);
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3L);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
+    assertEquals(BigDecimal.valueOf(13151.04), accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get());
+    assertEquals(BigDecimal.valueOf(105864.81), accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get());
   }
 
   /**
@@ -777,8 +779,8 @@ public class WorkShopTest {
     assertEquals(accountUserMoneyInPLNMap.size(), 6);
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6);
     assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04));
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81));
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04).round(new MathContext(2)));
+    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81).round(new MathContext(2)));
   }
 
   /**

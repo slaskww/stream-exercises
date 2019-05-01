@@ -3,9 +3,9 @@ package pl.klolo.workshops.logic;
 import pl.klolo.workshops.domain.Currency;
 import pl.klolo.workshops.domain.*;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
-import pl.klolo.workshops.mock.UserMockGenerator;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.SecureRandom;
 import java.util.*;
 import java.util.function.*;
@@ -756,12 +756,12 @@ class WorkShop {
         Set<String> women = new HashSet<>();
         Set<String> men = new HashSet<>();
 
-        for (Holding holding: holdings){
-            for (Company company: holding.getCompanies()){
-                for (User user: company.getUsers()){
-                    if (user.getSex() == Sex.WOMAN){
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    if (user.getSex() == Sex.WOMAN) {
                         women.add(user.getLastName());
-                    } else if (user.getSex() == Sex.MAN){
+                    } else if (user.getSex() == Sex.MAN) {
                         men.add(user.getLastName());
                     }
                 }
@@ -781,10 +781,10 @@ class WorkShop {
      */
     Map<Boolean, Set<String>> getUserBySexAsStream() {
 
-        Predicate<User> isManOrWOman = user -> user.getSex() == Sex.MAN || user.getSex() == Sex.WOMAN ;
+        Predicate<User> isManOrWOman = user -> user.getSex() == Sex.MAN || user.getSex() == Sex.WOMAN;
 
 
-             return    getUserStream()
+        return getUserStream()
                 .filter(isManOrWOman::test)
                 .collect(Collectors.partitioningBy(user -> user.getSex() == Sex.MAN, Collectors.mapping(user -> user.getLastName(), Collectors.toSet())));
 
@@ -798,10 +798,10 @@ class WorkShop {
 
         Map<String, Account> accountsMap = new HashMap<>();
 
-        for(Holding holding: holdings){
-            for (Company company: holding.getCompanies()){
-                for (User user: company.getUsers()){
-                    for (Account account: user.getAccounts()){
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    for (Account account : user.getAccounts()) {
                         accountsMap.put(account.getNumber(), account);
                     }
                 }
@@ -809,14 +809,14 @@ class WorkShop {
         }
 
         accountsMap.entrySet().forEach(entry -> System.out.println("key: " + entry.getKey() + " value: " + entry.getValue()));
-     return accountsMap;
+        return accountsMap;
     }
 
     /**
      * 51 Zwraca mapę rachunków, gdzie kluczem jest numer rachunku, a wartością ten rachunek. Napisz to za pomocą strumieni.
      */
     Map<String, Account> createAccountsMapAsStream() {
-        return getAccoutStream().collect(Collectors.toMap(account ->  account.getNumber(), account ->  account));
+        return getAccoutStream().collect(Collectors.toMap(account -> account.getNumber(), account -> account));
     }
 
     /**
@@ -827,31 +827,31 @@ class WorkShop {
         StringBuilder names = new StringBuilder();
         Set<String> namesInSet = new TreeSet<>();
 
-        for(Holding holding: holdings){
-            for (Company company: holding.getCompanies()){
-                for (User user: company.getUsers()){
-                   namesInSet.add(user.getFirstName());
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    namesInSet.add(user.getFirstName());
                 }
             }
         }
 
-        for (String name :namesInSet){
+        for (String name : namesInSet) {
             names.append(" ").append(name);
         }
 
         names.deleteCharAt(0);
         System.out.println(names.toString());
-        return  names.toString();
+        return names.toString();
     }
 
     /**
      * 53 Zwraca listę wszystkich imion w postaci Stringa, gdzie imiona oddzielone są spacją, są posortowane i nie zawierają powtórzeń. Napisz to za pomocą strumieni.
      */
     String getUserNamesAsStream() {
-       String names =  getUserStream().map(user -> user.getFirstName()).distinct().sorted().collect(Collectors.joining(" "));
+        String names = getUserStream().map(user -> user.getFirstName()).distinct().sorted().collect(Collectors.joining(" "));
 
         System.out.println(names);
-       return names;
+        return names;
     }
 
     /**
@@ -862,14 +862,14 @@ class WorkShop {
         Set<User> users = new HashSet<>();
         int counter = 0;
 
-        for(Holding holding: holdings){
-            for (Company company: holding.getCompanies()){
-                for (User user: company.getUsers()){
-                   users.add(user);
-                   counter++;
-                   if (counter == 10){
-                       return users;
-                   }
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    users.add(user);
+                    counter++;
+                    if (counter == 10) {
+                        return users;
+                    }
 
                 }
             }
@@ -889,12 +889,12 @@ class WorkShop {
      */
     Optional<User> findUser(final Predicate<User> userPredicate) {
 
-        for(Holding holding: holdings){
-            for (Company company: holding.getCompanies()){
-                for (User user: company.getUsers()){
-                   if (userPredicate.test(user)){
-                       return Optional.of(user);
-                   }
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    if (userPredicate.test(user)) {
+                        return Optional.of(user);
+                    }
 
                 }
             }
@@ -932,7 +932,6 @@ class WorkShop {
                 .orElse("Brak użytkownika");
 
 
-
     }
 
 
@@ -943,9 +942,9 @@ class WorkShop {
     void showAllUser() {
 
         ArrayList<User> users = new ArrayList<>();
-        for (Holding h:holdings){
-            for (Company c: h.getCompanies()){
-                for (User u: c.getUsers()){
+        for (Holding h : holdings) {
+            for (Company c : h.getCompanies()) {
+                for (User u : c.getUsers()) {
                     System.out.printf("(%s %s)%n", u.getFirstName(), u.getLastName());
                 }
             }
@@ -960,7 +959,7 @@ class WorkShop {
 
         getUserStream()
                 .sorted(Comparator.comparing(User::getFirstName).reversed())
-                .forEach(user -> System.out.printf("(%s %s)%n",user.getFirstName(), user.getLastName()));
+                .forEach(user -> System.out.printf("(%s %s)%n", user.getFirstName(), user.getLastName()));
     }
 
     /**
@@ -976,12 +975,12 @@ class WorkShop {
         moneyOnAccount.put(AccountType.LO1, BigDecimal.ZERO);
         moneyOnAccount.put(AccountType.LO2, BigDecimal.ZERO);
 
-        for (Holding h:holdings){
-            for (Company c: h.getCompanies()){
-                for (User u: c.getUsers()){
-                   for (Account ac: u.getAccounts()){
-                       moneyOnAccount.get(ac.getType()).add(ac.getAmount().multiply(BigDecimal.valueOf(ac.getCurrency().rate)));
-                   }
+        for (Holding h : holdings) {
+            for (Company c : h.getCompanies()) {
+                for (User u : c.getUsers()) {
+                    for (Account ac : u.getAccounts()) {
+                        moneyOnAccount.get(ac.getType()).add(ac.getAmount().multiply(BigDecimal.valueOf(ac.getCurrency().rate)));
+                    }
                 }
             }
         }
@@ -995,13 +994,13 @@ class WorkShop {
      */
     Map<AccountType, BigDecimal> getMoneyOnAccountsAsStream() {
 
-        return   getAccoutStream()
-                .collect(Collectors.toMap(Account::getType, acc->acc
+        return getAccoutStream()
+                .collect(Collectors.toMap(Account::getType, acc -> acc
                         .getAmount()
                         .multiply(BigDecimal
                                 .valueOf(acc.getCurrency()
                                         .rate))
-                        .setScale(0, BigDecimal.ROUND_HALF_DOWN), BigDecimal::add ));
+                        .setScale(0, BigDecimal.ROUND_HALF_DOWN), BigDecimal::add));
 
 
     }
@@ -1013,17 +1012,16 @@ class WorkShop {
 
         int ageSquareSum = 0;
 
-                for (Holding holding: holdings){
-                    for (Company company: holding.getCompanies()){
-                        for (User user: company.getUsers()){
-                            ageSquareSum += Math.pow(user.getAge(), 2);
-                        }
-                    }
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    ageSquareSum += Math.pow(user.getAge(), 2);
                 }
+            }
+        }
 
         return ageSquareSum;
     }
-
 
 
     /**
@@ -1031,7 +1029,7 @@ class WorkShop {
      */
     int getAgeSquaresSumAsStream() {
 
-      return   getUserStream().mapToInt(user -> user.getAge() * user.getAge()).sum();
+        return getUserStream().mapToInt(user -> user.getAge() * user.getAge()).sum();
 
     }
 
@@ -1041,21 +1039,21 @@ class WorkShop {
      */
     List<User> getRandomUsers(final int n) {
 
-     List<User> allUsers =  getUserStream().collect(Collectors.toList());
-     List<User> randomUsers = new ArrayList<>();
+        List<User> allUsers = getUserStream().collect(Collectors.toList());
+        List<User> randomUsers = new ArrayList<>();
 
 
-     if (n > allUsers.size()){
-         throw new ArrayIndexOutOfBoundsException();
-     }
+        if (n > allUsers.size()) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
 
-     for (int i = 1; i <= n; i++){
+        for (int i = 1; i <= n; i++) {
 
-         randomUsers.add(allUsers.get(i));
-         allUsers.remove(i);
-     }
+            randomUsers.add(allUsers.get(i));
+            allUsers.remove(i);
+        }
 
-    return randomUsers;
+        return randomUsers;
 
     }
 
@@ -1078,12 +1076,12 @@ class WorkShop {
 //                .collect(Collectors.toList()))
 //                .orElseThrow(ArrayIndexOutOfBoundsException::new);
 
-       final List<User> allUsers =  getUserStream().collect(Collectors.toList());
+        final List<User> allUsers = getUserStream().collect(Collectors.toList());
 
         SecureRandom rand = new SecureRandom();
         Supplier<User> userSupplier = () -> allUsers.get(rand.nextInt(allUsers.size()));
 
-       return Stream.generate(userSupplier).limit(n).distinct().collect(Collectors.toList());
+        return Stream.generate(userSupplier).limit(n).distinct().collect(Collectors.toList());
 
     }
 
@@ -1092,46 +1090,37 @@ class WorkShop {
      * na rachunku danego typu przeliczona na złotkówki.
      */
 
-    private Map<User, BigDecimal> manWithSumMoneyOnAccounts(final Company company) {
-        return company
-                .getUsers()
-                .stream()
-                .filter(user -> user.getSex() == Sex.MAN)
-                .collect(Collectors.toMap(
-                        Function.identity(),
-                        this::getSumUserAmountInPLN
-                ));
-    }
-
-    private BigDecimal getSumUserAmountInPLN(final User user) {
-        return user.getAccounts()
-                .stream()
-                .map(this::getAccountAmountInPLN)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
     Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMap() {
 
+        Map<AccountType, Map<User, BigDecimal>> accountTypes = new HashMap<>();
+        accountTypes.put(AccountType.LO2, new HashMap<>());
+        accountTypes.put(AccountType.LO1, new HashMap<>());
+        accountTypes.put(AccountType.RO2, new HashMap<>());
+        accountTypes.put(AccountType.RO1, new HashMap<>());
+        accountTypes.put(AccountType.ROR2, new HashMap<>());
+        accountTypes.put(AccountType.ROR1, new HashMap<>());
 
-        Map<User, BigDecimal> userMoney = getUserStream()
-                .filter(user -> user.getSex() == Sex.MAN)
-                .collect(Collectors.toMap(Function.identity(), user -> user.getAccounts()
-                        .stream()
-                        .map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate))).reduce(BigDecimal::add).get()));
 
-      //  return getUserStream().collect(Collectors.toMap(u -> u.getAccounts().stream().map(Account::getType), Collectors.toMap(Function.identity(), User::getAccounts)));
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
 
-//        return getCompanyStream()
-//                .collect(Collectors.toMap(
-//                        company -> company.getUsers()
-//                                .stream()
-//                                .flatMap(user -> user.getAccounts()
-//                                        .stream()
-//                                        .map(Account::getType)),
-//                        this::manWithSumMoneyOnAccounts
-//                ));
+                    if (user.getSex() == Sex.MAN) {
+                        for (Account account : user.getAccounts()) {
+                            accountTypes.get(account.getType()).put(user, account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(2, RoundingMode.HALF_UP));
 
-        return null;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        for (Map.Entry<AccountType, Map<User, BigDecimal>> entry : accountTypes.entrySet()) {
+            System.out.println("typ " + entry.getKey() + " osob: " + entry.getValue().size());
+        }
+
+        return accountTypes;
     }
 
     /**
@@ -1148,7 +1137,7 @@ class WorkShop {
      */
 
     Map<Permit, List<User>> getUsersByTheyPermitsSorted() {
-        return null;
+        return null; //getUserStream().collect(Collectors.groupingBy(user -> user.getPermits().stream().flatMap()));
     }
 
     /**
