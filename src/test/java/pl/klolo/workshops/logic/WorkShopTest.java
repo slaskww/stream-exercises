@@ -794,10 +794,10 @@ public class WorkShopTest {
     assertEquals(usersByTheyPermitsSorted.size(), 4);
     assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).size(), 16);
     assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(0).getLastName(), "Bazuka");
-    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Kucowski");
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).size(), 13);
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(0).getLastName(), "Marcinowicz");
-    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Kucowski");
   }
 
   /**
@@ -811,10 +811,10 @@ public class WorkShopTest {
     assertEquals(usersByTheyPermitsSorted.size(), 4);
     assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).size(), 16);
     assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(0).getLastName(), "Bazuka");
-    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.LOAN).get(15).getLastName(), "Kucowski");
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).size(), 13);
     assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(0).getLastName(), "Marcinowicz");
-    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Dreh");
+    assertEquals(usersByTheyPermitsSorted.get(Permit.ORDER_HISTORY).get(12).getLastName(), "Kucowski");
   }
 
   @Test

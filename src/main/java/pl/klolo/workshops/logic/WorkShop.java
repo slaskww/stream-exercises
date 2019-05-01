@@ -1137,7 +1137,31 @@ class WorkShop {
      */
 
     Map<Permit, List<User>> getUsersByTheyPermitsSorted() {
-        return null; //getUserStream().collect(Collectors.groupingBy(user -> user.getPermits().stream().flatMap()));
+
+        Map<Permit, List<User>> usersByTheyPermitsSorted = new HashMap<>();
+        usersByTheyPermitsSorted.put(Permit.LOAN, new ArrayList<>());
+        usersByTheyPermitsSorted.put(Permit.ORDER_HISTORY, new ArrayList<>());
+        usersByTheyPermitsSorted.put(Permit.DEPOSIT, new ArrayList<>());
+        usersByTheyPermitsSorted.put(Permit.TRANSFER, new ArrayList<>());
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    for (Permit permit: user.getPermits()){
+                        usersByTheyPermitsSorted.get(permit).add(user);
+                    }
+                }
+            }
+        }
+
+
+        for (Map.Entry<Permit, List<User>> entry: usersByTheyPermitsSorted.entrySet()){
+            entry.getValue().sort(Comparator.comparing(user -> user.getAccounts().stream().map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate))).reduce(new BigDecimal("0"), BigDecimal::add)));
+            Collections.reverse(entry.getValue());
+            System.out.println("klucz: " + entry.getKey() + " dl.listy: "+ entry.getValue().size() + " lista: " + entry.getValue());
+        }
+
+        return usersByTheyPermitsSorted;
     }
 
     /**
@@ -1146,7 +1170,7 @@ class WorkShop {
      */
 
     Map<Permit, List<User>> getUsersByTheyPermitsSortedAsStream() {
-        return null;
+        return null; //getUserStream().collect(Collectors.groupingBy(user -> user.getPermits().stream().flatMap()));
     }
 
     /**
