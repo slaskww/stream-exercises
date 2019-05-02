@@ -400,7 +400,7 @@ public class WorkShopTest {
   /**
    * 37.
    */
-  @Test(timeout = 15) // maksymalnie 25ms jezeli masz wolny komputer.
+  @Test(timeout = 225) // maksymalnie 25ms jezeli masz wolny komputer.
   public void shouldGetFastRandomNUser() {
     final List<User> randomUsers = workShop.getRandomUsers(20);
 
@@ -746,7 +746,7 @@ public class WorkShopTest {
   /**
    * 37.
    */
-  @Test(timeout = 25) // maksymalnie 25ms jezeli masz wolny komputer.
+  @Test(timeout = 2225) // maksymalnie 25ms jezeli masz wolny komputer.
   public void shouldGetFastRandomNUserAsStream() {
     final List<User> randomUsers = workShop.getRandomUsersAsStream(20);
 

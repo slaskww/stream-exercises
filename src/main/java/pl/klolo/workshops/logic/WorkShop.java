@@ -3,6 +3,7 @@ package pl.klolo.workshops.logic;
 import pl.klolo.workshops.domain.Currency;
 import pl.klolo.workshops.domain.*;
 import pl.klolo.workshops.mock.HoldingMockGenerator;
+import pl.klolo.workshops.mock.UserMockGenerator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -394,7 +395,7 @@ class WorkShop {
     BigDecimal getAccountAmountInPLNAsStream(final Account account) {
         return Stream.of(account)
                 .map(account1 -> account1.getAmount().multiply(BigDecimal.valueOf(account1.getCurrency().rate)))
-                .reduce(new BigDecimal("0"), BigDecimal::add).setScale(3, BigDecimal.ROUND_HALF_DOWN);
+                .reduce(new BigDecimal("0"), BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_DOWN);
     }
 
     /**
@@ -501,8 +502,33 @@ class WorkShop {
     Optional<User> getRichestWoman() {
 
 
-        return null;
-    }
+        Optional<User> richestWoman = null;
+        BigDecimal biggestAmount = new BigDecimal("0");
+
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+                    if (user.getSex() == Sex.WOMAN) {
+                        BigDecimal balance = new BigDecimal("0");
+
+                        for (Account account: user.getAccounts()){
+                            balance = balance.add(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)));
+                        }
+                        if (balance.compareTo(biggestAmount) > 0){
+                            richestWoman = Optional.of(user);
+                            biggestAmount = balance;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return richestWoman;
+        }
+
+
 
     /**
      * 35 Wyszukuje najbogatsza kobietę i zwraca ja. Metoda musi uzwględniać to że rachunki są w różnych walutach. Napisz to za pomocą strumieni.
@@ -590,23 +616,11 @@ class WorkShop {
      */
     AccountType getMostPopularAccountTypeAsStream() {
 
-        Map<AccountType, Long> accounts =
-                getAccoutStream()
-                        .map(Account::getType)
-                        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-        // return accounts.entrySet().stream().max((s, f) -> f.getValue().intValue()).get().getKey();
-        return accounts.entrySet()
-                .stream()
-                .sorted(Collections.reverseOrder((k, v) -> v.getValue().intValue()))
-                .map(Map.Entry::getKey)
-                .findFirst()
-                .orElseThrow(IllegalStateException::new);
-
-//            accounts.forEach((accountType, aLong) -> {
-//              System.out.printf("%s : %d%n", accountType.toString(), aLong);
-//            });
-
+        return getAccoutStream()
+                .map(account -> account.getType())
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+                .stream().max((k, v) -> v.getValue().intValue())
+                .map((k) -> k.getKey()).orElseThrow(IllegalStateException::new);
 
     }
 
@@ -889,6 +903,7 @@ class WorkShop {
      */
     Optional<User> findUser(final Predicate<User> userPredicate) {
 
+
         for (Holding holding : holdings) {
             for (Company company : holding.getCompanies()) {
                 for (User user : company.getUsers()) {
@@ -899,7 +914,7 @@ class WorkShop {
                 }
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
@@ -917,15 +932,6 @@ class WorkShop {
      */
     String getAdultantStatusAsStream(final Optional<User> user) {
 
-//        Predicate<User> currentUser = user1 -> user.isPresent() && Objects.equals(user1, user.get());
-//
-//
-//
-//
-//        return getUserStream().filter(currentUser::test)
-//                .map(user1 -> user1.getFirstName() + " " + user1.getLastName() + " ma lat " + user1.getAge())
-//                .findFirst()
-//                .orElse("Brak użytkownika");
 
         return user.flatMap(u -> getUserStream().filter(u2 -> Objects.equals(u2, u)).findFirst())
                 .map(u -> format("%s %s ma lat %d", u.getFirstName(), u.getLastName(), u.getAge()))
@@ -979,10 +985,14 @@ class WorkShop {
             for (Company c : h.getCompanies()) {
                 for (User u : c.getUsers()) {
                     for (Account ac : u.getAccounts()) {
-                        moneyOnAccount.get(ac.getType()).add(ac.getAmount().multiply(BigDecimal.valueOf(ac.getCurrency().rate)));
+                        moneyOnAccount.replace(ac.getType(), moneyOnAccount.get(ac.getType()), moneyOnAccount.get(ac.getType()).add(ac.getAmount().multiply(BigDecimal.valueOf(ac.getCurrency().rate))));
                     }
                 }
             }
+        }
+
+        for (Map.Entry<AccountType, BigDecimal> entry: moneyOnAccount.entrySet()){
+            System.out.println("key " + entry.getKey() + " value: " + entry.getValue());
         }
 
         return moneyOnAccount;
@@ -1039,21 +1049,17 @@ class WorkShop {
      */
     List<User> getRandomUsers(final int n) {
 
-        List<User> allUsers = getUserStream().collect(Collectors.toList());
-        List<User> randomUsers = new ArrayList<>();
+        final UserMockGenerator userMockGenerator = new UserMockGenerator();
 
-
-        if (n > allUsers.size()) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-
-        for (int i = 1; i <= n; i++) {
-
-            randomUsers.add(allUsers.get(i));
-            allUsers.remove(i);
-        }
-
-        return randomUsers;
+        return Optional.of(userMockGenerator.generate().stream()
+                .collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
+                    Collections.shuffle(collected);
+                    return collected.stream();
+                }))
+                .limit(n)
+                .distinct()
+                .collect(Collectors.toList()))
+                .orElseThrow(ArrayIndexOutOfBoundsException::new);
 
     }
 
@@ -1063,26 +1069,15 @@ class WorkShop {
      */
     List<User> getRandomUsersAsStream(final int n) {
 
+       final UserMockGenerator generator = new UserMockGenerator();
 
-//        final UserMockGenerator userMockGenerator = new UserMockGenerator();
-//
-//        return Optional.of(userMockGenerator.generate().stream()
-//                .collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
-//                    Collections.shuffle(collected);
-//                    return collected.stream();
-//                }))
-//                .limit(n)
-//                .distinct()
-//                .collect(Collectors.toList()))
-//                .orElseThrow(ArrayIndexOutOfBoundsException::new);
-
-        final List<User> allUsers = getUserStream().collect(Collectors.toList());
-
-        SecureRandom rand = new SecureRandom();
-        Supplier<User> userSupplier = () -> allUsers.get(rand.nextInt(allUsers.size()));
-
-        return Stream.generate(userSupplier).limit(n).distinct().collect(Collectors.toList());
-
+       return Optional.of(generator.generate()
+               .stream()
+               .collect(Collectors.collectingAndThen(Collectors.toList(), users -> {Collections.shuffle(users); return users
+                       .stream();}))
+               .limit(n).distinct()
+               .collect(Collectors.toList()))
+               .orElseThrow(ArrayIndexOutOfBoundsException::new);
     }
 
     /**
@@ -1230,7 +1225,7 @@ class WorkShop {
      * 74 Zwraca zbiór walut w jakich są rachunki.
      */
     private Set<Currency> getCurenciesSet() {
-        return null;
+        return getAccoutStream().map(account -> account.getCurrency()).collect(Collectors.toSet());
     }
 
     /**
