@@ -1178,7 +1178,26 @@ class WorkShop {
      * List<Users>
      */
     Map<Boolean, List<User>> divideUsersByPredicate(final Predicate<User> predicate) {
-        return null;
+
+
+        Map<Boolean, List<User>> usersByPredicate = new HashMap<>();
+        usersByPredicate.put(true, new ArrayList<>());
+        usersByPredicate.put(false, new ArrayList<>());
+
+        for (Holding holding : holdings) {
+            for (Company company : holding.getCompanies()) {
+                for (User user : company.getUsers()) {
+
+                   if (predicate.test(user)){
+                       usersByPredicate.get(true).add(user);
+                   } else {
+                       usersByPredicate.get(false).add(user);
+                   }
+                }
+            }
+        }
+
+    return usersByPredicate;
     }
 
     /**
@@ -1186,7 +1205,15 @@ class WorkShop {
      * List<Users>. Wykonaj zadanie za pomoca strumieni.
      */
     Map<Boolean, List<User>> divideUsersByPredicateAsStream(final Predicate<User> predicate) {
-        return null;
+
+          Map<Boolean, List<User>> usersByPredicate = getUserStream().collect(Collectors.partitioningBy(user -> predicate.test(user)));
+
+          for (Map.Entry<Boolean, List<User>> entry : usersByPredicate.entrySet()){
+
+              System.out.println("key: " + entry.getKey() + " size: " + entry.getValue().size());
+          }
+
+          return usersByPredicate;
     }
 
     /**
