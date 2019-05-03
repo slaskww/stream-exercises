@@ -544,8 +544,8 @@ class WorkShop {
                 .max(Comparator.comparing(user -> user.getAccounts()
                         .stream()
                         .map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)))
-                        .reduce(BigDecimal::add)
-                        .get()));
+                        .reduce(new BigDecimal("0") , BigDecimal::add)
+                        ));
 
         return richestWoman;
     }
@@ -619,8 +619,8 @@ class WorkShop {
         return getAccoutStream()
                 .map(account -> account.getType())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
-                .stream().max((k, v) -> v.getValue().intValue())
-                .map((k) -> k.getKey()).orElseThrow(IllegalStateException::new);
+                .stream().max(Comparator.comparing(Map.Entry::getValue))
+                .map(Map.Entry::getKey).orElseThrow(IllegalStateException::new);
 
     }
 
@@ -1122,8 +1122,37 @@ class WorkShop {
      * 68 Stwórz mapę gdzie kluczem jest typ rachunku a wartością mapa mężczyzn posiadających ten rachunek, gdzie kluczem jest obiekt User a wartoscią suma pieniędzy
      * na rachunku danego typu przeliczona na złotkówki.  Napisz to za pomocą strumieni.
      */
-    Map<AccountType, Map<User, BigDecimal>> getAccountUserMoneyInPLNMapAsStream() {
-        return null;
+
+
+    BigDecimal getSumMoneyInPLN(User user){
+
+        return user.getAccounts()
+                .stream()
+                .map(account -> account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+
+
+    Map<User, BigDecimal> userWithSumMoney(Company company){
+
+        return  company
+                .getUsers()
+                        .stream()
+                        .filter(user -> user.getSex() == Sex.MAN)
+                        .collect(Collectors
+                                .toMap(Function.identity(), this::getSumMoneyInPLN));
+    }
+
+    Map<Stream<AccountType>, Map<User, BigDecimal>> getAccountUserMoneyInPLNMapAsStream() {
+
+
+
+        return getCompanyStream()
+                .collect(Collectors.toMap(company -> company.getUsers()
+                        .stream().flatMap(user -> user.getAccounts()
+                                .stream().distinct()
+                                .map(account -> account.getType())), this::userWithSumMoney));
     }
 
     /**

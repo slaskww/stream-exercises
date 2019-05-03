@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Stream;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -774,13 +776,13 @@ public class WorkShopTest {
    */
   @Test
   public void shouldGetAccountUserMoneyInPLNMapAsStream() {
-    Map<AccountType, Map<User, BigDecimal>> accountUserMoneyInPLNMap = workShop.getAccountUserMoneyInPLNMapAsStream();
+    Map<Stream<AccountType>, Map<User, BigDecimal>> accountUserMoneyInPLNMap = workShop.getAccountUserMoneyInPLNMapAsStream();
     assertNotNull(accountUserMoneyInPLNMap);
-    assertEquals(accountUserMoneyInPLNMap.size(), 6);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).size(), 6);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).size(), 3);
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(13151.04).round(new MathContext(2)));
-    assertEquals(accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get(), BigDecimal.valueOf(105864.81).round(new MathContext(2)));
+    assertEquals(6L,accountUserMoneyInPLNMap.size());
+    assertEquals(6L,accountUserMoneyInPLNMap.get(AccountType.LO1).size());
+    assertEquals(3L, accountUserMoneyInPLNMap.get(AccountType.ROR1).size());
+    assertEquals(BigDecimal.valueOf(13151.04).round(new MathContext(2)) ,accountUserMoneyInPLNMap.get(AccountType.ROR1).values().stream().reduce(BigDecimal::add).get());
+    assertEquals(BigDecimal.valueOf(105864.81).round(new MathContext(2)),accountUserMoneyInPLNMap.get(AccountType.LO1).values().stream().reduce(BigDecimal::add).get());
   }
 
   /**
